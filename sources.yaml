@@ -1,0 +1,51 @@
+# DOL OFLC disclosure file sources.
+# Page: https://www.dol.gov/agencies/eta/foreign-labor/performance
+# (has historically moved between dol.gov and flag.dol.gov — update here, not in code)
+#
+# LCA files are PER-QUARTER from FY2020 onward (verified empirically: FY2025
+# Q1 and Q4 share only 595 of ~107k case numbers — amended cases). FY2015-
+# FY2019 are single end-of-year files. The current fiscal year publishes one
+# cumulative-to-date file per release.
+# PERM files are one per fiscal year (Q4 = full year); FY2024 additionally
+# has a "New Form" companion file after the mid-year form change.
+
+base_url: https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs
+
+lca:
+  2015: [H-1B_Disclosure_Data_FY15_Q4.xlsx]
+  2016: [H-1B_Disclosure_Data_FY16.xlsx]
+  2017: [H-1B_Disclosure_Data_FY17.xlsx]
+  2018: [H-1B_Disclosure_Data_FY2018_EOY.xlsx]
+  2019: [H-1B_Disclosure_Data_FY2019.xlsx]
+  2020: [LCA_Disclosure_Data_FY2020_Q1.xlsx, LCA_Disclosure_Data_FY2020_Q2.xlsx,
+         LCA_Disclosure_Data_FY2020_Q3.xlsx, LCA_Disclosure_Data_FY2020_Q4.xlsx]
+  2021: [LCA_Disclosure_Data_FY2021_Q1.xlsx, LCA_Disclosure_Data_FY2021_Q2.xlsx,
+         LCA_Disclosure_Data_FY2021_Q3.xlsx, LCA_Disclosure_Data_FY2021_Q4.xlsx]
+  2022: [LCA_Disclosure_Data_FY2022_Q1.xlsx, LCA_Disclosure_Data_FY2022_Q2.xlsx,
+         LCA_Disclosure_Data_FY2022_Q3.xlsx, LCA_Disclosure_Data_FY2022_Q4.xlsx]
+  2023: [LCA_Disclosure_Data_FY2023_Q1.xlsx, LCA_Disclosure_Data_FY2023_Q2.xlsx,
+         LCA_Disclosure_Data_FY2023_Q3.xlsx, LCA_Disclosure_Data_FY2023_Q4.xlsx]
+  2024: [LCA_Disclosure_Data_FY2024_Q1.xlsx, LCA_Disclosure_Data_FY2024_Q2.xlsx,
+         LCA_Disclosure_Data_FY2024_Q3.xlsx, LCA_Disclosure_Data_FY2024_Q4.xlsx]
+  2025: [LCA_Disclosure_Data_FY2025_Q1.xlsx, LCA_Disclosure_Data_FY2025_Q2.xlsx,
+         LCA_Disclosure_Data_FY2025_Q3.xlsx, LCA_Disclosure_Data_FY2025_Q4.xlsx]
+  # Current FY: cumulative-to-date file; DOL's own filename typo ("Dislclosure")
+  # and a different URL prefix.
+  2026: [https://www.dol.gov/media/LCA_Dislclosure_Data_FY2026_Q2.xlsx]
+
+perm:
+  2015: [PERM_Disclosure_Data_FY15_Q4.xlsx]
+  2016: [PERM_Disclosure_Data_FY16.xlsx]
+  2017: [PERM_Disclosure_Data_FY17.xlsx]
+  2018: [PERM_Disclosure_Data_FY2018_EOY.xlsx]
+  2019: [PERM_FY2019.xlsx]
+  2020: [PERM_Disclosure_Data_FY2020.xlsx]
+  2021: [PERM_Disclosure_Data_FY2021.xlsx]
+  2022: [PERM_Disclosure_Data_FY2022_Q4.xlsx]
+  2023: [PERM_Disclosure_Data_FY2023_Q4.xlsx]
+  2024: [PERM_Disclosure_Data_FY2024_Q4.xlsx, PERM_Disclosure_Data_New_Form_FY2024_Q4.xlsx]
+  2025: [PERM_Disclosure_Data_FY2025_Q4.xlsx]
+  2026: [PERM_Disclosure_Data_FY2026_Q2.xlsx]
+
+# Pre-2015 files exist back to FY2008 (EFILE/iCert eras) with substantially
+# different layouts; assessed separately before inclusion.

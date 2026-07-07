@@ -1,0 +1,464 @@
+era,source_column,canonical_column,kind,note
+lca_2015,CASE_NUMBER,case_number,passthrough,
+lca_2015,CASE_STATUS,case_status,passthrough,
+lca_2015,CASE_SUBMITTED,received_date,core,
+lca_2015,DECISION_DATE,decision_date,passthrough,
+lca_2015,VISA_CLASS,visa_class,passthrough,
+lca_2015,EMPLOYMENT_START_DATE,begin_date,core,
+lca_2015,EMPLOYMENT_END_DATE,end_date,core,
+lca_2015,EMPLOYER_NAME,employer_name,passthrough,
+lca_2015,EMPLOYER_ADDRESS1,employer_address1,passthrough,
+lca_2015,EMPLOYER_ADDRESS2,employer_address2,passthrough,
+lca_2015,EMPLOYER_CITY,employer_city,passthrough,
+lca_2015,EMPLOYER_STATE,employer_state,passthrough,
+lca_2015,EMPLOYER_POSTAL_CODE,employer_postal_code,passthrough,
+lca_2015,EMPLOYER_COUNTRY,employer_country,passthrough,
+lca_2015,EMPLOYER_PROVINCE,employer_province,passthrough,
+lca_2015,EMPLOYER_PHONE,employer_phone,passthrough,
+lca_2015,EMPLOYER_PHONE_EXT,employer_phone_ext,passthrough,
+lca_2015,AGENT_ATTORNEY_NAME,agent_attorney_name,passthrough,
+lca_2015,AGENT_ATTORNEY_CITY,agent_attorney_city,passthrough,
+lca_2015,AGENT_ATTORNEY_STATE,agent_attorney_state,passthrough,
+lca_2015,JOB_TITLE,job_title,passthrough,
+lca_2015,SOC_CODE,soc_code,passthrough,
+lca_2015,SOC_NAME,soc_title,core,
+lca_2015,NAIC_CODE,naics_code,core,
+lca_2015,TOTAL WORKERS,total_worker_positions,core,
+lca_2015,FULL_TIME_POSITION,full_time_position,passthrough,
+lca_2015,PREVAILING_WAGE,prevailing_wage,passthrough,
+lca_2015,PW_UNIT_OF_PAY,pw_unit_of_pay,passthrough,
+lca_2015,PW_WAGE_LEVEL,pw_wage_level,passthrough,
+lca_2015,PW_WAGE_SOURCE,pw_wage_source,core,
+lca_2015,PW_WAGE_SOURCE_YEAR,pw_wage_source_year,core,
+lca_2015,PW_WAGE_SOURCE_OTHER,pw_wage_source_other,core,
+lca_2015,WAGE_RATE_OF_PAY,wage_rate_of_pay_from,core,
+lca_2015,WAGE_UNIT_OF_PAY,wage_unit_of_pay,passthrough,
+lca_2015,H-1B_DEPENDENT,h_1b_dependent,core,
+lca_2015,WILLFUL VIOLATOR,willful_violator,core,
+lca_2015,WORKSITE_CITY,worksite_city,passthrough,
+lca_2015,WORKSITE_COUNTY,worksite_county,passthrough,
+lca_2015,WORKSITE_STATE,worksite_state,passthrough,
+lca_2015,WORKSITE_POSTAL_CODE,worksite_postal_code,passthrough,
+lca_2015,EMPLOYER_ADDRESS,employer_address1,core,
+lca_2015,TOTAL_WORKERS,total_worker_positions,core,
+lca_2015,PW_SOURCE_YEAR,pw_wage_source_year,core,
+lca_2015,PW_SOURCE_OTHER,pw_wage_source_other,core,
+lca_2015,WAGE_RATE_OF_PAY_FROM,wage_rate_of_pay_from,passthrough,
+lca_2015,WAGE_RATE_OF_PAY_TO,wage_rate_of_pay_to,passthrough,
+lca_2015,WILLFUL_VIOLATOR,willful_violator,passthrough,
+lca_2015,ORIGINAL_CERT_DATE,original_cert_date,passthrough,
+lca_2017,CASE_NUMBER,case_number,passthrough,
+lca_2017,CASE_STATUS,case_status,passthrough,
+lca_2017,CASE_SUBMITTED,received_date,core,
+lca_2017,DECISION_DATE,decision_date,passthrough,
+lca_2017,VISA_CLASS,visa_class,passthrough,
+lca_2017,EMPLOYMENT_START_DATE,begin_date,core,
+lca_2017,EMPLOYMENT_END_DATE,end_date,core,
+lca_2017,EMPLOYER_NAME,employer_name,passthrough,
+lca_2017,EMPLOYER_BUSINESS_DBA,trade_name_dba,core,
+lca_2017,EMPLOYER_ADDRESS,employer_address1,core,
+lca_2017,EMPLOYER_CITY,employer_city,passthrough,
+lca_2017,EMPLOYER_STATE,employer_state,passthrough,
+lca_2017,EMPLOYER_POSTAL_CODE,employer_postal_code,passthrough,
+lca_2017,EMPLOYER_COUNTRY,employer_country,passthrough,
+lca_2017,EMPLOYER_PROVINCE,employer_province,passthrough,
+lca_2017,EMPLOYER_PHONE,employer_phone,passthrough,
+lca_2017,EMPLOYER_PHONE_EXT,employer_phone_ext,passthrough,
+lca_2017,AGENT_REPRESENTING_EMPLOYER,agent_representing_employer,passthrough,
+lca_2017,AGENT_ATTORNEY_NAME,agent_attorney_name,passthrough,
+lca_2017,AGENT_ATTORNEY_CITY,agent_attorney_city,passthrough,
+lca_2017,AGENT_ATTORNEY_STATE,agent_attorney_state,passthrough,
+lca_2017,JOB_TITLE,job_title,passthrough,
+lca_2017,SOC_CODE,soc_code,passthrough,
+lca_2017,SOC_NAME,soc_title,core,
+lca_2017,NAICS_CODE,naics_code,passthrough,
+lca_2017,TOTAL_WORKERS,total_worker_positions,core,
+lca_2017,NEW_EMPLOYMENT,new_employment,passthrough,
+lca_2017,CONTINUED_EMPLOYMENT,continued_employment,passthrough,
+lca_2017,CHANGE_PREVIOUS_EMPLOYMENT,change_previous_employment,passthrough,
+lca_2017,NEW_CONCURRENT_EMPLOYMENT,new_concurrent_employment,passthrough,
+lca_2017,CHANGE_EMPLOYER,change_employer,passthrough,
+lca_2017,AMENDED_PETITION,amended_petition,passthrough,
+lca_2017,FULL_TIME_POSITION,full_time_position,passthrough,
+lca_2017,PREVAILING_WAGE,prevailing_wage,passthrough,
+lca_2017,PW_UNIT_OF_PAY,pw_unit_of_pay,passthrough,
+lca_2017,PW_WAGE_LEVEL,pw_wage_level,passthrough,
+lca_2017,PW_SOURCE,pw_wage_source,core,
+lca_2017,PW_SOURCE_YEAR,pw_wage_source_year,core,
+lca_2017,PW_SOURCE_OTHER,pw_wage_source_other,core,
+lca_2017,WAGE_RATE_OF_PAY_FROM,wage_rate_of_pay_from,passthrough,
+lca_2017,WAGE_RATE_OF_PAY_TO,wage_rate_of_pay_to,passthrough,
+lca_2017,WAGE_UNIT_OF_PAY,wage_unit_of_pay,passthrough,
+lca_2017,H1B_DEPENDENT,h_1b_dependent,core,
+lca_2017,WILLFUL_VIOLATOR,willful_violator,passthrough,
+lca_2017,SUPPORT_H1B,support_h1b,passthrough,
+lca_2017,LABOR_CON_AGREE,agree_to_lc_statement,core,
+lca_2017,PUBLIC_DISCLOSURE_LOCATION,public_disclosure,core,
+lca_2017,WORKSITE_CITY,worksite_city,passthrough,
+lca_2017,WORKSITE_COUNTY,worksite_county,passthrough,
+lca_2017,WORKSITE_STATE,worksite_state,passthrough,
+lca_2017,WORKSITE_POSTAL_CODE,worksite_postal_code,passthrough,
+lca_2017,ORIGINAL_CERT_DATE,original_cert_date,passthrough,
+lca_2017,NEW_CONCURRENT_EMP,new_concurrent_emp,passthrough,
+lca_2019,CASE_NUMBER,case_number,passthrough,
+lca_2019,CASE_STATUS,case_status,passthrough,
+lca_2019,CASE_SUBMITTED,received_date,core,
+lca_2019,DECISION_DATE,decision_date,passthrough,
+lca_2019,ORIGINAL_CERT_DATE,original_cert_date,passthrough,
+lca_2019,VISA_CLASS,visa_class,passthrough,
+lca_2019,JOB_TITLE,job_title,passthrough,
+lca_2019,SOC_CODE,soc_code,passthrough,
+lca_2019,SOC_TITLE,soc_title,passthrough,
+lca_2019,FULL_TIME_POSITION,full_time_position,passthrough,
+lca_2019,PERIOD_OF_EMPLOYMENT_START_DATE,begin_date,core,
+lca_2019,PERIOD_OF_EMPLOYMENT_END_DATE,end_date,core,
+lca_2019,TOTAL_WORKER_POSITIONS,total_worker_positions,passthrough,
+lca_2019,NEW_EMPLOYMENT,new_employment,passthrough,
+lca_2019,CONTINUED_EMPLOYMENT,continued_employment,passthrough,
+lca_2019,CHANGE_PREVIOUS_EMPLOYMENT,change_previous_employment,passthrough,
+lca_2019,NEW_CONCURRENT_EMPLOYMENT,new_concurrent_employment,passthrough,
+lca_2019,CHANGE_EMPLOYER,change_employer,passthrough,
+lca_2019,AMENDED_PETITION,amended_petition,passthrough,
+lca_2019,EMPLOYER_NAME,employer_name,passthrough,
+lca_2019,EMPLOYER_BUSINESS_DBA,trade_name_dba,core,
+lca_2019,EMPLOYER_ADDRESS1,employer_address1,passthrough,
+lca_2019,EMPLOYER_ADDRESS2,employer_address2,passthrough,
+lca_2019,EMPLOYER_CITY,employer_city,passthrough,
+lca_2019,EMPLOYER_STATE,employer_state,passthrough,
+lca_2019,EMPLOYER_POSTAL_CODE,employer_postal_code,passthrough,
+lca_2019,EMPLOYER_COUNTRY,employer_country,passthrough,
+lca_2019,EMPLOYER_PROVINCE,employer_province,passthrough,
+lca_2019,EMPLOYER_PHONE,employer_phone,passthrough,
+lca_2019,EMPLOYER_PHONE_EXT,employer_phone_ext,passthrough,
+lca_2019,NAICS_CODE,naics_code,passthrough,
+lca_2019,AGENT_REPRESENTING_EMPLOYER,agent_representing_employer,passthrough,
+lca_2019,AGENT_ATTORNEY_LAW_FIRM_BUSINESS_NAME,lawfirm_name_business_name,core,
+lca_2019,AGENT_ATTORNEY_ADDRESS1,agent_attorney_address1,passthrough,
+lca_2019,AGENT_ATTORNEY_ADDRESS2,agent_attorney_address2,passthrough,
+lca_2019,AGENT_ATTORNEY_CITY,agent_attorney_city,passthrough,
+lca_2019,AGENT_ATTORNEY_STATE,agent_attorney_state,passthrough,
+lca_2019,AGENT_ATTORNEY_POSTAL_CODE,agent_attorney_postal_code,passthrough,
+lca_2019,AGENT_ATTORNEY_COUNTRY,agent_attorney_country,passthrough,
+lca_2019,AGENT_ATTORNEY_PROVINCE,agent_attorney_province,passthrough,
+lca_2019,AGENT_ATTORNEY_PHONE,agent_attorney_phone,passthrough,
+lca_2019,AGENT_ATTORNEY_PHONE_EXT,agent_attorney_phone_ext,passthrough,
+lca_2019,STATE_OF_HIGHEST_COURT,state_of_highest_court,passthrough,
+lca_2019,NAME_OF_HIGHEST_STATE_COURT,name_of_highest_state_court,passthrough,
+lca_2019,WORKSITE_WORKERS_1,worksite_workers,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,SECONDARY_ENTITY_1,secondary_entity,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,SECONDARY_ENTITY_BUSINESS_NAME_1,secondary_entity_business_name,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,WORKSITE_ADDRESS1_1,worksite_address1,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,WORKSITE_ADDRESS2_1,worksite_address2,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,WORKSITE_CITY_1,worksite_city,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,WORKSITE_COUNTY_1,worksite_county,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,WORKSITE_STATE_1,worksite_state,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,WORKSITE_POSTAL_CODE_1,worksite_postal_code,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,WAGE_RATE_OF_PAY_FROM_1,wage_rate_of_pay_from,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,WAGE_RATE_OF_PAY_TO_1,wage_rate_of_pay_to,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,WAGE_UNIT_OF_PAY_1,wage_unit_of_pay,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,PREVAILING_WAGE_1,prevailing_wage,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,PW_UNIT_OF_PAY_1,pw_unit_of_pay,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,PW_TRACKING_NUMBER_1,pw_tracking_number,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,PW_WAGE_LEVEL_1,pw_wage_level,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,PW_OES_YEAR_1,pw_oes_year,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,PW_OTHER_SOURCE_1,pw_other_source,core,
+lca_2019,PW_NON-OES_YEAR_1,pw_other_year,core,
+lca_2019,PW_SURVEY_PUBLISHER_1,pw_survey_publisher,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,PW_SURVEY_NAME_1,pw_survey_name,core,primary worksite group mapped to unsuffixed canonical
+lca_2019,WORKSITE_WORKERS_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_BUSINESS_NAME_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS1_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS2_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_CITY_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_COUNTY_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_STATE_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_POSTAL_CODE_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_FROM_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_TO_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_UNIT_OF_PAY_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PREVAILING_WAGE_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_UNIT_OF_PAY_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_TRACKING_NUMBER_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_WAGE_LEVEL_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OES_YEAR_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OTHER_SOURCE_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_NON-OES_YEAR_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_PUBLISHER_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_NAME_2,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_WORKERS_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_BUSINESS_NAME_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS1_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS2_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_CITY_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_COUNTY_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_STATE_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_POSTAL_CODE_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_FROM_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_TO_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_UNIT_OF_PAY_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PREVAILING_WAGE_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_UNIT_OF_PAY_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_TRACKING_NUMBER_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_WAGE_LEVEL_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OES_YEAR_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OTHER_SOURCE_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_NON-OES_YEAR_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_PUBLISHER_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_NAME_3,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_WORKERS_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_BUSINESS_NAME_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS1_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS2_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_CITY_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_COUNTY_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_STATE_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_POSTAL_CODE_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_FROM_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_TO_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_UNIT_OF_PAY_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PREVAILING_WAGE_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_UNIT_OF_PAY_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_TRACKING_NUMBER_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_WAGE_LEVEL_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OES_YEAR_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OTHER_SOURCE_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_NON-OES_YEAR_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_PUBLISHER_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_NAME_4,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_WORKERS_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_BUSINESS_NAME_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS1_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS2_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_CITY_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_COUNTY_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_STATE_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_POSTAL_CODE_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_FROM_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_TO_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_UNIT_OF_PAY_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PREVAILING_WAGE_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_UNIT_OF_PAY_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_TRACKING_NUMBER_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_WAGE_LEVEL_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OES_YEAR_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OTHER_SOURCE_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_NON-OES_YEAR_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_PUBLISHER_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_NAME_5,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_WORKERS_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_BUSINESS_NAME_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS1_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS2_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_CITY_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_COUNTY_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_STATE_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_POSTAL_CODE_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_FROM_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_TO_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_UNIT_OF_PAY_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PREVAILING_WAGE_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_UNIT_OF_PAY_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_TRACKING_NUMBER_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_WAGE_LEVEL_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OES_YEAR_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OTHER_SOURCE_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_NON-OES_YEAR_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_PUBLISHER_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_NAME_6,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_WORKERS_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_BUSINESS_NAME_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS1_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS2_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_CITY_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_COUNTY_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_STATE_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_POSTAL_CODE_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_FROM_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_TO_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_UNIT_OF_PAY_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PREVAILING_WAGE_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_UNIT_OF_PAY_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_TRACKING_NUMBER_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_WAGE_LEVEL_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OES_YEAR_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OTHER_SOURCE_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_NON-OES_YEAR_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_PUBLISHER_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_NAME_7,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_WORKERS_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_BUSINESS_NAME_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS1_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS2_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_CITY_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_COUNTY_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_STATE_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_POSTAL_CODE_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_FROM_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_TO_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_UNIT_OF_PAY_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PREVAILING_WAGE_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_UNIT_OF_PAY_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_TRACKING_NUMBER_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_WAGE_LEVEL_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OES_YEAR_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OTHER_SOURCE_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_NON-OES_YEAR_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_PUBLISHER_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_NAME_8,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_WORKERS_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_BUSINESS_NAME_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS1_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS2_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_CITY_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_COUNTY_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_STATE_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_POSTAL_CODE_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_FROM_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_TO_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_UNIT_OF_PAY_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PREVAILING_WAGE_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_UNIT_OF_PAY_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_TRACKING_NUMBER_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_WAGE_LEVEL_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OES_YEAR_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OTHER_SOURCE_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_NON-OES_YEAR_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_PUBLISHER_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_NAME_9,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_WORKERS_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,SECONDARY_ENTITY_BUSINESS_NAME_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS1_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_ADDRESS2_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_CITY_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_COUNTY_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_STATE_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WORKSITE_POSTAL_CODE_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_FROM_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_RATE_OF_PAY_TO_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,WAGE_UNIT_OF_PAY_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PREVAILING_WAGE_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_UNIT_OF_PAY_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_TRACKING_NUMBER_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_WAGE_LEVEL_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OES_YEAR_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_OTHER_SOURCE_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_NON-OES_YEAR_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_PUBLISHER_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,PW_SURVEY_NAME_10,,drop,secondary worksite group (_2.._10); primary (_1) kept
+lca_2019,H-1B_DEPENDENT,h_1b_dependent,core,
+lca_2019,WILLFUL_VIOLATOR,willful_violator,passthrough,
+lca_2019,SUPPORT_H1B,support_h1b,passthrough,
+lca_2019,STATUTORY_BASIS,statutory_basis,passthrough,
+lca_2019,MASTERS_EXEMPTION,masters_exemption,passthrough,
+lca_2019,PUBLIC_DISCLOSURE,public_disclosure,passthrough,
+lca_2020,CASE_NUMBER,case_number,passthrough,
+lca_2020,CASE_STATUS,case_status,passthrough,
+lca_2020,RECEIVED_DATE,received_date,passthrough,
+lca_2020,DECISION_DATE,decision_date,passthrough,
+lca_2020,ORIGINAL_CERT_DATE,original_cert_date,passthrough,
+lca_2020,VISA_CLASS,visa_class,passthrough,
+lca_2020,JOB_TITLE,job_title,passthrough,
+lca_2020,SOC_CODE,soc_code,passthrough,
+lca_2020,SOC_TITLE,soc_title,passthrough,
+lca_2020,FULL_TIME_POSITION,full_time_position,passthrough,
+lca_2020,BEGIN_DATE,begin_date,passthrough,
+lca_2020,END_DATE,end_date,passthrough,
+lca_2020,TOTAL_WORKER_POSITIONS,total_worker_positions,passthrough,
+lca_2020,NEW_EMPLOYMENT,new_employment,passthrough,
+lca_2020,CONTINUED_EMPLOYMENT,continued_employment,passthrough,
+lca_2020,CHANGE_PREVIOUS_EMPLOYMENT,change_previous_employment,passthrough,
+lca_2020,NEW_CONCURRENT_EMPLOYMENT,new_concurrent_employment,passthrough,
+lca_2020,CHANGE_EMPLOYER,change_employer,passthrough,
+lca_2020,AMENDED_PETITION,amended_petition,passthrough,
+lca_2020,EMPLOYER_NAME,employer_name,passthrough,
+lca_2020,TRADE_NAME_DBA,trade_name_dba,passthrough,
+lca_2020,EMPLOYER_ADDRESS1,employer_address1,passthrough,
+lca_2020,EMPLOYER_ADDRESS2,employer_address2,passthrough,
+lca_2020,EMPLOYER_CITY,employer_city,passthrough,
+lca_2020,EMPLOYER_STATE,employer_state,passthrough,
+lca_2020,EMPLOYER_POSTAL_CODE,employer_postal_code,passthrough,
+lca_2020,EMPLOYER_COUNTRY,employer_country,passthrough,
+lca_2020,EMPLOYER_PROVINCE,employer_province,passthrough,
+lca_2020,EMPLOYER_PHONE,employer_phone,passthrough,
+lca_2020,EMPLOYER_PHONE_EXT,employer_phone_ext,passthrough,
+lca_2020,NAICS_CODE,naics_code,passthrough,
+lca_2020,EMPLOYER_POC_LAST_NAME,employer_poc_last_name,passthrough,
+lca_2020,EMPLOYER_POC_FIRST_NAME,employer_poc_first_name,passthrough,
+lca_2020,EMPLOYER_POC_MIDDLE_NAME,employer_poc_middle_name,passthrough,
+lca_2020,EMPLOYER_POC_JOB_TITLE,employer_poc_job_title,passthrough,
+lca_2020,EMPLOYER_POC_ADDRESS1,employer_poc_address1,passthrough,
+lca_2020,EMPLOYER_POC_ADDRESS2,employer_poc_address2,passthrough,
+lca_2020,EMPLOYER_POC_CITY,employer_poc_city,passthrough,
+lca_2020,EMPLOYER_POC_STATE,employer_poc_state,passthrough,
+lca_2020,EMPLOYER_POC_POSTAL_CODE,employer_poc_postal_code,passthrough,
+lca_2020,EMPLOYER_POC_COUNTRY,employer_poc_country,passthrough,
+lca_2020,EMPLOYER_POC_PROVINCE,employer_poc_province,passthrough,
+lca_2020,EMPLOYER_POC_PHONE,employer_poc_phone,passthrough,
+lca_2020,EMPLOYER_POC_PHONE_EXT,employer_poc_phone_ext,passthrough,
+lca_2020,EMPLOYER_POC_EMAIL,employer_poc_email,passthrough,
+lca_2020,AGENT_REPRESENTING_EMPLOYER,agent_representing_employer,passthrough,
+lca_2020,AGENT_ATTORNEY_LAST_NAME,agent_attorney_last_name,passthrough,
+lca_2020,AGENT_ATTORNEY_FIRST_NAME,agent_attorney_first_name,passthrough,
+lca_2020,AGENT_ATTORNEY_MIDDLE_NAME,agent_attorney_middle_name,passthrough,
+lca_2020,AGENT_ATTORNEY_ADDRESS1,agent_attorney_address1,passthrough,
+lca_2020,AGENT_ATTORNEY_ADDRESS2,agent_attorney_address2,passthrough,
+lca_2020,AGENT_ATTORNEY_CITY,agent_attorney_city,passthrough,
+lca_2020,AGENT_ATTORNEY_STATE,agent_attorney_state,passthrough,
+lca_2020,AGENT_ATTORNEY_POSTAL_CODE,agent_attorney_postal_code,passthrough,
+lca_2020,AGENT_ATTORNEY_COUNTRY,agent_attorney_country,passthrough,
+lca_2020,AGENT_ATTORNEY_PROVINCE,agent_attorney_province,passthrough,
+lca_2020,AGENT_ATTORNEY_PHONE,agent_attorney_phone,passthrough,
+lca_2020,AGENT_ATTORNEY_PHONE_EXT,agent_attorney_phone_ext,passthrough,
+lca_2020,AGENT_ATTORNEY_EMAIL_ADDRESS,agent_attorney_email_address,passthrough,
+lca_2020,LAWFIRM_NAME_BUSINESS_NAME,lawfirm_name_business_name,passthrough,
+lca_2020,STATE_OF_HIGHEST_COURT,state_of_highest_court,passthrough,
+lca_2020,NAME_OF_HIGHEST_STATE_COURT,name_of_highest_state_court,passthrough,
+lca_2020,WORKSITE_WORKERS,worksite_workers,passthrough,
+lca_2020,SECONDARY_ENTITY,secondary_entity,passthrough,
+lca_2020,SECONDARY_ENTITY_BUSINESS_NAME,secondary_entity_business_name,passthrough,
+lca_2020,WORKSITE_ADDRESS1,worksite_address1,passthrough,
+lca_2020,WORKSITE_ADDRESS2,worksite_address2,passthrough,
+lca_2020,WORKSITE_CITY,worksite_city,passthrough,
+lca_2020,WORKSITE_COUNTY,worksite_county,passthrough,
+lca_2020,WORKSITE_STATE,worksite_state,passthrough,
+lca_2020,WORKSITE_POSTAL_CODE,worksite_postal_code,passthrough,
+lca_2020,WAGE_RATE_OF_PAY_FROM,wage_rate_of_pay_from,passthrough,
+lca_2020,WAGE_RATE_OF_PAY_TO,wage_rate_of_pay_to,passthrough,
+lca_2020,WAGE_UNIT_OF_PAY,wage_unit_of_pay,passthrough,
+lca_2020,PREVAILING_WAGE,prevailing_wage,passthrough,
+lca_2020,PW_UNIT_OF_PAY,pw_unit_of_pay,passthrough,
+lca_2020,PW_TRACKING_NUMBER,pw_tracking_number,passthrough,
+lca_2020,PW_WAGE_LEVEL,pw_wage_level,passthrough,
+lca_2020,PW_OES_YEAR,pw_oes_year,passthrough,
+lca_2020,PW_OTHER_SOURCE,pw_other_source,passthrough,
+lca_2020,PW_OTHER_YEAR,pw_other_year,passthrough,
+lca_2020,PW_SURVEY_PUBLISHER,pw_survey_publisher,passthrough,
+lca_2020,PW_SURVEY_NAME,pw_survey_name,passthrough,
+lca_2020,TOTAL_WORKSITE_LOCATIONS,total_worksite_locations,passthrough,
+lca_2020,AGREE_TO_LC_STATEMENT,agree_to_lc_statement,passthrough,
+lca_2020,H-1B_DEPENDENT,h_1b_dependent,core,
+lca_2020,WILLFUL_VIOLATOR,willful_violator,passthrough,
+lca_2020,SUPPORT_H1B,support_h1b,passthrough,
+lca_2020,STATUTORY_BASIS,statutory_basis,passthrough,
+lca_2020,APPENDIX_A_ATTACHED,appendix_a_attached,passthrough,
+lca_2020,PUBLIC_DISCLOSURE,public_disclosure,passthrough,
+lca_2020,PREPARER_LAST_NAME,preparer_last_name,passthrough,
+lca_2020,PREPARER_FIRST_NAME,preparer_first_name,passthrough,
+lca_2020,PREPARER_MIDDLE_INITIAL,preparer_middle_initial,passthrough,
+lca_2020,PREPARER_BUSINESS_NAME,preparer_business_name,passthrough,
+lca_2020,PREPARER_EMAIL,preparer_email,passthrough,
+lca_2020,EMPLOYER_POC_ADDRESS_1,employer_poc_address_1,passthrough,
+lca_2020,EMPLOYER_POC_ADDRESS_2,employer_poc_address_2,passthrough,
+lca_2020,H1B_DEPENDENT,h_1b_dependent,core,
+lca_2020,H_1B_DEPENDENT,h_1b_dependent,passthrough,
+lca_2020,EMPLOYER_FEIN,employer_fein,passthrough,
+lca_2020,LAWFIRM_BUSINESS_FEIN,lawfirm_business_fein,passthrough,

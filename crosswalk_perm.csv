@@ -1,0 +1,431 @@
+era,source_column,canonical_column,kind,note
+perm_2015,CASE_NUMBER,case_number,passthrough,
+perm_2015,DECISION_DATE,decision_date,passthrough,
+perm_2015,CASE_STATUS,case_status,passthrough,
+perm_2015,CASE_RECEIVED_DATE,received_date,core,
+perm_2015,REFILE,refile,passthrough,
+perm_2015,ORIG_FILE_DATE,orig_file_date,passthrough,
+perm_2015,ORIG_CASE_NO,orig_case_number,core,
+perm_2015,SCHD_A_SHEEPHERDER,schd_a_sheepherder,passthrough,
+perm_2015,EMPLOYER_NAME,employer_name,passthrough,
+perm_2015,EMPLOYER_ADDRESS_1,employer_address1,core,
+perm_2015,EMPLOYER_ADDRESS_2,employer_address2,core,
+perm_2015,EMPLOYER_CITY,employer_city,passthrough,
+perm_2015,EMPLOYER_STATE,employer_state,passthrough,
+perm_2015,EMPLOYER_COUNTRY,employer_country,passthrough,
+perm_2015,EMPLOYER_POSTAL_CODE,employer_postal_code,passthrough,
+perm_2015,EMPLOYER_PHONE,employer_phone,passthrough,
+perm_2015,EMPLOYER_PHONE_EXT,,drop,trimmed: outside curated analytical set
+perm_2015,EMPLOYER_NUM_EMPLOYEES,employer_num_employees,core,
+perm_2015,EMPLOYER_YR_ESTAB,employer_year_established,core,
+perm_2015,FW_OWNERSHIP_INTEREST,,drop,trimmed: outside curated analytical set
+perm_2015,AGENT_FIRM_NAME,agent_attorney_firm_name,core,
+perm_2015,AGENT_CITY,agent_attorney_city,core,
+perm_2015,AGENT_STATE,agent_attorney_state,core,
+perm_2015,PW_TRACK_NUM,pw_tracking_number,core,
+perm_2015,PW_SOC_CODE,soc_code,core,
+perm_2015,PW_SOC_TITLE,soc_title,core,
+perm_2015,PW_LEVEL_9089,pw_level,core,
+perm_2015,PW_AMOUNT_9089,pw_wage,core,
+perm_2015,PW_UNIT_OF_PAY_9089,pw_unit_of_pay,core,
+perm_2015,PW_SOURCE_NAME_9089,pw_wage_source,core,
+perm_2015,PW_SOURCE_NAME_OTHER_9089,pw_wage_source_other,core,
+perm_2015,PW_DETERM_DATE,pw_determination_date,core,
+perm_2015,PW_EXPIRE_DATE,pw_expiration_date,core,
+perm_2015,WAGE_OFFER_FROM_9089,wage_offer_from,core,
+perm_2015,WAGE_OFFER_TO_9089,wage_offer_to,core,
+perm_2015,WAGE_OFFER_UNIT_OF_PAY_9089,wage_offer_unit_of_pay,core,
+perm_2015,JOB_INFO_WORK_CITY,worksite_city,core,
+perm_2015,JOB_INFO_WORK_STATE,worksite_state,core,
+perm_2015,JOB_INFO_WORK_POSTAL_CODE,worksite_postal_code,core,
+perm_2015,JOB_INFO_JOB_TITLE,job_title,core,
+perm_2015,JOB_INFO_EDUCATION,minimum_education,core,
+perm_2015,JOB_INFO_EDUCATION_OTHER,job_education_min_other,core,
+perm_2015,JOB_INFO_MAJOR,major_field_of_study,core,
+perm_2015,JOB_INFO_TRAINING,required_training,core,
+perm_2015,JOB_INFO_TRAINING_NUM_MONTHS,required_training_months,core,
+perm_2015,JOB_INFO_TRAINING_FIELD,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_EXPERIENCE,required_experience,core,
+perm_2015,JOB_INFO_EXPERIENCE_NUM_MONTHS,required_experience_months,core,
+perm_2015,JOB_INFO_ALT_FIELD,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_ALT_FIELD_NAME,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_ALT_COMBO_ED_EXP,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_ALT_COMBO_ED,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_ALT_COMBO_ED_OTHER,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_ALT_CMB_ED_OTH_YRS,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_FOREIGN_ED,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_ALT_OCC,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_ALT_OCC_NUM_MONTHS,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_ALT_OCC_JOB_TITLE,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_JOB_REQ_NORMAL,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_FOREIGN_LANG_REQ,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_COMBO_OCCUPATION,,drop,trimmed: outside curated analytical set
+perm_2015,JI_OFFERED_TO_SEC_J_FOREIGN_WORKER,,drop,trimmed: outside curated analytical set
+perm_2015,JI_FOREIGN_WORKER_LIVE_ON_PREMISES,,drop,trimmed: outside curated analytical set
+perm_2015,JI_LIVE_IN_DOMESTIC_SERVICE,,drop,trimmed: outside curated analytical set
+perm_2015,JI_LIVE_IN_DOM_SVC_CONTRACT,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_PROFESSIONAL_OCC,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_COLL_UNIV_TEACHER,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_COLL_TEACH_COMP_PROC,,drop,trimmed: outside curated analytical set
+perm_2015,RI_COLL_TCH_BASIC_PROCESS,,drop,trimmed: outside curated analytical set
+perm_2015,RI_COLL_TEACH_SELECT_DATE,,drop,trimmed: outside curated analytical set
+perm_2015,RI_COLL_TEACH_PRO_JNL,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_SWA_JOB_ORDER_START,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_SWA_JOB_ORDER_END,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_SUNDAY_NEWSPAPER,,drop,trimmed: outside curated analytical set
+perm_2015,RI_1ST_AD_NEWSPAPER_NAME,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_FIRST_AD_START,,drop,trimmed: outside curated analytical set
+perm_2015,RI_2ND_AD_NEWSPAPER_NAME,,drop,trimmed: outside curated analytical set
+perm_2015,RI_2ND_AD_NEWSPAPER_OR_JOURNAL,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_SECOND_AD_START,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_JOB_FAIR_FROM,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_JOB_FAIR_TO,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_ON_CAMPUS_RECR_FROM,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_ON_CAMPUS_RECR_TO,,drop,trimmed: outside curated analytical set
+perm_2015,RI_EMPLOYER_WEB_POST_FROM,,drop,trimmed: outside curated analytical set
+perm_2015,RI_EMPLOYER_WEB_POST_TO,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_PRO_ORG_ADVERT_FROM,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_PRO_ORG_ADVERT_TO,,drop,trimmed: outside curated analytical set
+perm_2015,RI_JOB_SEARCH_WEBSITE_FROM,,drop,trimmed: outside curated analytical set
+perm_2015,RI_JOB_SEARCH_WEBSITE_TO,,drop,trimmed: outside curated analytical set
+perm_2015,RI_PVT_EMPLOYMENT_FIRM_FROM,,drop,trimmed: outside curated analytical set
+perm_2015,RI_PVT_EMPLOYMENT_FIRM_TO,,drop,trimmed: outside curated analytical set
+perm_2015,RI_EMPLOYEE_REFERRAL_PROG_FROM,,drop,trimmed: outside curated analytical set
+perm_2015,RI_EMPLOYEE_REFERRAL_PROG_TO,,drop,trimmed: outside curated analytical set
+perm_2015,RI_CAMPUS_PLACEMENT_FROM,,drop,trimmed: outside curated analytical set
+perm_2015,RI_CAMPUS_PLACEMENT_TO,,drop,trimmed: outside curated analytical set
+perm_2015,RI_LOCAL_ETHNIC_PAPER_FROM,,drop,trimmed: outside curated analytical set
+perm_2015,RI_LOCAL_ETHNIC_PAPER_TO,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_RADIO_TV_AD_FROM,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_RADIO_TV_AD_TO,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_EMPLOYER_REC_PAYMENT,,drop,trimmed: outside curated analytical set
+perm_2015,REC_INFO_BARG_REP_NOTIFIED,,drop,trimmed: outside curated analytical set
+perm_2015,RI_POSTED_NOTICE_AT_WORKSITE,,drop,trimmed: outside curated analytical set
+perm_2015,RI_LAYOFF_IN_PAST_SIX_MONTHS,layoff_in_past_six_months,core,
+perm_2015,RI_US_WORKERS_CONSIDERED,,drop,trimmed: outside curated analytical set
+perm_2015,FOREIGN_WORKER_INFO_CITY,,drop,trimmed: outside curated analytical set
+perm_2015,FOREIGN_WORKER_INFO_STATE,,drop,trimmed: outside curated analytical set
+perm_2015,FW_INFO_POSTAL_CODE,,drop,trimmed: outside curated analytical set
+perm_2015,COUNTRY_OF_CITIZENSHIP,country_of_citizenship,passthrough,
+perm_2015,FW_INFO_BIRTH_COUNTRY,foreign_worker_birth_country,core,
+perm_2015,CLASS_OF_ADMISSION,class_of_admission,passthrough,
+perm_2015,FOREIGN_WORKER_INFO_EDUCATION,foreign_worker_education,core,
+perm_2015,FW_INFO_EDUCATION_OTHER,foreign_worker_education_other,core,
+perm_2015,FOREIGN_WORKER_INFO_MAJOR,foreign_worker_major,core,
+perm_2015,FW_INFO_YR_REL_EDU_COMPLETED,foreign_worker_yrs_ed_comp,core,
+perm_2015,FOREIGN_WORKER_INFO_INST,foreign_worker_inst_of_ed,core,
+perm_2015,FW_INFO_TRAINING_COMP,,drop,trimmed: outside curated analytical set
+perm_2015,FW_INFO_REQ_EXPERIENCE,foreign_worker_req_experience,core,
+perm_2015,FW_INFO_ALT_EDU_EXPERIENCE,,drop,trimmed: outside curated analytical set
+perm_2015,FW_INFO_REL_OCCUP_EXP,,drop,trimmed: outside curated analytical set
+perm_2015,PREPARER_INFO_EMP_COMPLETED,,drop,trimmed: outside curated analytical set
+perm_2015,PREPARER_INFO_TITLE,,drop,trimmed: outside curated analytical set
+perm_2015,EMPLOYER_DECL_INFO_TITLE,,drop,trimmed: outside curated analytical set
+perm_2015,NAICS_US_CODE,,drop,trimmed: outside curated analytical set
+perm_2015,NAICS_US_TITLE,,drop,trimmed: outside curated analytical set
+perm_2015,PW_Job_Title_9089,,drop,trimmed: outside curated analytical set
+perm_2015,JI_OFFERED_TO_SEC_J_FW,,drop,trimmed: outside curated analytical set
+perm_2015,JI_FW_LIVE_ON_PREMISES,,drop,trimmed: outside curated analytical set
+perm_2015,RECR_INFO_BARG_REP_NOTIFIED,,drop,trimmed: outside curated analytical set
+perm_2015,FW_INFO_REL_OCCUP_EXPERIENCE,,drop,trimmed: outside curated analytical set
+perm_2015,PW_JOB_TITLE_9089,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_TRANING_NUM_MONTHS,,drop,trimmed: outside curated analytical set
+perm_2015,WAGE_OFFERED_FROM_9089,,drop,trimmed: outside curated analytical set
+perm_2015,WAGE_OFFERED_TO_9089,,drop,trimmed: outside curated analytical set
+perm_2015,JOB_INFO_ALT_COMBO_ED_EXP_1,,drop,trimmed: outside curated analytical set
+perm_2015,PW_JOB_TITLE,,drop,trimmed: outside curated analytical set
+perm_2020,CASE_NUMBER,case_number,passthrough,
+perm_2020,CASE_STATUS,case_status,passthrough,
+perm_2020,RECEIVED_DATE,received_date,passthrough,
+perm_2020,DECISION_DATE,decision_date,passthrough,
+perm_2020,REFILE,refile,passthrough,
+perm_2020,ORIG_FILE_DATE,orig_file_date,passthrough,
+perm_2020,PREVIOUS_SWA_CASE_NUMBER_STATE,,drop,trimmed: outside curated analytical set
+perm_2020,SCHD_A_SHEEPHERDER,schd_a_sheepherder,passthrough,
+perm_2020,EMPLOYER_NAME,employer_name,passthrough,
+perm_2020,EMPLOYER_ADDRESS_1,employer_address1,core,
+perm_2020,EMPLOYER_ADDRESS_2,employer_address2,core,
+perm_2020,EMPLOYER_CITY,employer_city,passthrough,
+perm_2020,EMPLOYER_STATE_PROVINCE,employer_state,core,
+perm_2020,EMPLOYER_COUNTRY,employer_country,passthrough,
+perm_2020,EMPLOYER_POSTAL_CODE,employer_postal_code,passthrough,
+perm_2020,EMPLOYER_PHONE,employer_phone,passthrough,
+perm_2020,EMPLOYER_PHONE_EXT,,drop,trimmed: outside curated analytical set
+perm_2020,EMPLOYER_NUM_EMPLOYEES,employer_num_employees,core,
+perm_2020,EMPLOYER_YEAR_COMMENCED_BUSINESS,,drop,trimmed: outside curated analytical set
+perm_2020,NAICS_CODE,naics_code,core,
+perm_2020,FW_OWNERSHIP_INTEREST,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_CONTACT_NAME,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_CONTACT_ADDRESS_1,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_CONTACT_ADDRESS_2,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_CONTACT_CITY,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_CONTACT_STATE_PROVINCE,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_CONTACT_COUNTRY,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_CONTACT_POSTAL_CODE,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_CONTACT_PHONE,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_CONTACT_EMAIL,,drop,trimmed: outside curated analytical set
+perm_2020,AGENT_ATTORNEY_NAME,,drop,trimmed: outside curated analytical set
+perm_2020,AGENT_ATTORNEY_FIRM_NAME,agent_attorney_firm_name,core,
+perm_2020,AGENT_ATTORNEY_PHONE,,drop,trimmed: outside curated analytical set
+perm_2020,AGENT_ATTORNEY_PHONE_EXT,,drop,trimmed: outside curated analytical set
+perm_2020,AGENT_ATTORNEY_ADDRESS_1,,drop,trimmed: outside curated analytical set
+perm_2020,AGENT_ATTORNEY_ADDRESS_2,,drop,trimmed: outside curated analytical set
+perm_2020,AGENT_ATTORNEY_CITY,agent_attorney_city,core,
+perm_2020,AGENT_ATTORNEY_STATE_PROVINCE,agent_attorney_state,core,
+perm_2020,AGENT_ATTORNEY_COUNTRY,,drop,trimmed: outside curated analytical set
+perm_2020,AGENT_ATTORNEY_POSTAL_CODE,,drop,trimmed: outside curated analytical set
+perm_2020,AGENT_ATTORNEY_EMAIL,,drop,trimmed: outside curated analytical set
+perm_2020,PW_TRACK_NUMBER,pw_tracking_number,core,
+perm_2020,PW_SOC_CODE,soc_code,core,
+perm_2020,PW_SOC_TITLE,soc_title,core,
+perm_2020,PW_SKILL_LEVEL,pw_level,core,
+perm_2020,PW_WAGE,pw_wage,core,
+perm_2020,PW_UNIT_OF_PAY,pw_unit_of_pay,passthrough,
+perm_2020,PW_WAGE_SOURCE,pw_wage_source,core,
+perm_2020,PW_SOURCE_NAME_OTHER,pw_wage_source_other,core,
+perm_2020,PW_DETERMINATION_DATE,pw_determination_date,core,
+perm_2020,PW_EXPIRATION_DATE,pw_expiration_date,core,
+perm_2020,WAGE_OFFER_FROM,wage_offer_from,core,
+perm_2020,WAGE_OFFER_TO,wage_offer_to,core,
+perm_2020,WAGE_OFFER_UNIT_OF_PAY,wage_offer_unit_of_pay,core,
+perm_2020,WORKSITE_ADDRESS_1,worksite_address1,core,
+perm_2020,WORKSITE_ADDRESS_2,worksite_address2,core,
+perm_2020,WORKSITE_CITY,worksite_city,core,
+perm_2020,WORKSITE_STATE,worksite_state,core,
+perm_2020,WORKSITE_POSTAL_CODE,worksite_postal_code,core,
+perm_2020,JOB_TITLE,job_title,passthrough,
+perm_2020,MINIMUM_EDUCATION,minimum_education,core,
+perm_2020,JOB_EDUCATION_MIN_OTHER,job_education_min_other,core,
+perm_2020,MAJOR_FIELD_OF_STUDY,major_field_of_study,core,
+perm_2020,REQUIRED_TRAINING,required_training,core,
+perm_2020,REQUIRED_TRAINING_MONTHS,required_training_months,core,
+perm_2020,REQUIRED_FIELD_OF_TRAINING,,drop,trimmed: outside curated analytical set
+perm_2020,REQUIRED_EXPERIENCE,required_experience,core,
+perm_2020,REQUIRED_EXPERIENCE_MONTHS,required_experience_months,core,
+perm_2020,ACCEPT_ALT_FIELD_OF_STUDY,,drop,trimmed: outside curated analytical set
+perm_2020,ACCEPT_ALT_MAJOR_FLD_OF_STUDY,,drop,trimmed: outside curated analytical set
+perm_2020,ACCEPT_ALT_COMBO,,drop,trimmed: outside curated analytical set
+perm_2020,ACCEPT_ALT_COMBO_EDUCATION,,drop,trimmed: outside curated analytical set
+perm_2020,ACCEPT_ALT_COMBO_ED_OTHER,,drop,trimmed: outside curated analytical set
+perm_2020,ACCEPT_ALT_COMBO_EDUCATION_YRS,,drop,trimmed: outside curated analytical set
+perm_2020,ACCEPT_FOREIGN_EDUCATION,,drop,trimmed: outside curated analytical set
+perm_2020,ACCEPT_ALT_OCCUPATION,,drop,trimmed: outside curated analytical set
+perm_2020,ACCEPT_ALT_OCCUPATION_MONTHS,,drop,trimmed: outside curated analytical set
+perm_2020,ACCEPT_ALT_JOB_TITLE,,drop,trimmed: outside curated analytical set
+perm_2020,JOB_OPP_REQUIREMENTS_NORMAL,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_LANGUAGE_REQUIRED,,drop,trimmed: outside curated analytical set
+perm_2020,SPECIFIC_SKILLS,,drop,trimmed: outside curated analytical set
+perm_2020,COMBINATION_OCCUPATION,combination_occupation,passthrough,
+perm_2020,OFFERED_TO_APPL_FOREIGN_WORKER,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_LIVE_ON_PREM,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_LIVE_IN_DOM_SER,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_LIVE_IN_DOM_CNT,,drop,trimmed: outside curated analytical set
+perm_2020,PROFESSIONAL_OCCUPATION,professional_occupation,passthrough,
+perm_2020,APP_FOR_COLLEGE_U_TEACHER,,drop,trimmed: outside curated analytical set
+perm_2020,COMPETITIVE_PROCESS,,drop,trimmed: outside curated analytical set
+perm_2020,BASIC_RECRUITMENT_PROCESS,,drop,trimmed: outside curated analytical set
+perm_2020,TEACHER_SELECT_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,TEACHER_PUB_JOURNAL_NAME,,drop,trimmed: outside curated analytical set
+perm_2020,ADD_RECRUIT_INFORMATION,,drop,trimmed: outside curated analytical set
+perm_2020,SWA_JOB_ORDER_START_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,SWA_JOB_ORDER_END_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,SUNDAY_EDITION_NEWSPAPER,,drop,trimmed: outside curated analytical set
+perm_2020,FIRST_NEWSPAPER_NAME,,drop,trimmed: outside curated analytical set
+perm_2020,FIRST_ADVERTISEMENT_START_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,SECOND_NEWSPAPER_AD_NAME,,drop,trimmed: outside curated analytical set
+perm_2020,SECOND_ADVERTISEMENT_TYPE,,drop,trimmed: outside curated analytical set
+perm_2020,SECOND_AD_START_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,JOB_FAIR_FROM_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,JOB_FAIR_TO_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,ON_CAMPUS_RECRUITING_FROM_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,ON_CAMPUS_RECRUITING_TO_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,EMPLOYER_WEBSITE_FROM_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,EMPLOYER_WEBSITE_TO_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,PRO_ORG_AD_FROM_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,PRO_ORG_ADVERTISEMENT_TO_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,JOB_SEARCH_WEBSITE_FROM_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,JOB_SEARCH_WEBSITE_TO_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,PVT_EMPLOYMENT_FIRM_FROM_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,PVT_EMPLOYMENT_FIRM_TO_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,EMPLOYEE_REF_PROG_FROM_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,EMPLOYEE_REFERRAL_PROG_TO_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,CAMPUS_PLACEMENT_FROM_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,CAMPUS_PLACEMENT_TO_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,LOCAL_ETHNIC_PAPER_FROM_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,LOCAL_ETHNIC_PAPER_TO_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,RADIO_TV_AD_FROM_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,RADIO_TV_AD_TO_DATE,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_RECEIVED_PAYMENT,,drop,trimmed: outside curated analytical set
+perm_2020,PAYMENT_DETAILS,,drop,trimmed: outside curated analytical set
+perm_2020,BARGAINING_REP_NOTIFIED,,drop,trimmed: outside curated analytical set
+perm_2020,POSTED_NOTICE_AT_WORKSITE,,drop,trimmed: outside curated analytical set
+perm_2020,LAYOFF_IN_PAST_SIX_MONTHS,layoff_in_past_six_months,core,
+perm_2020,US_WORKERS_CONSIDERED,us_workers_considered,passthrough,
+perm_2020,COUNTRY_OF_CITIZENSHIP,country_of_citizenship,passthrough,
+perm_2020,FOREIGN_WORKER_BIRTH_COUNTRY,foreign_worker_birth_country,core,
+perm_2020,CLASS_OF_ADMISSION,class_of_admission,passthrough,
+perm_2020,FOREIGN_WORKER_EDUCATION,foreign_worker_education,core,
+perm_2020,FOREIGN_WORKER_EDUCATION_OTHER,foreign_worker_education_other,core,
+perm_2020,FOREIGN_WORKER_INFO_MAJOR,foreign_worker_major,core,
+perm_2020,FOREIGN_WORKER_YRS_ED_COMP,foreign_worker_yrs_ed_comp,core,
+perm_2020,FOREIGN_WORKER_INST_OF_ED,foreign_worker_inst_of_ed,core,
+perm_2020,FOREIGN_WORKER_ED_INST_ADD_1,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_ED_INST_ADD_2,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_ED_INST_CITY,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_ED_INST_STATE_P,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_ED_INST_COUNTRY,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_ED_INST_POST_CD,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_TRAINING_COMP,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_REQ_EXPERIENCE,foreign_worker_req_experience,core,
+perm_2020,FOREIGN_WORKER_ALT_ED_EXP,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_ALT_OCC_EXP,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_EXP_WITH_EMPL,foreign_worker_exp_with_empl,passthrough,
+perm_2020,FOREIGN_WORKER_EMPL_PAY_FOR_ED,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_CURR_EMPLOYED,foreign_worker_curr_employed,passthrough,
+perm_2020,EMPLOYER_COMPLETED_APPLICATION,,drop,trimmed: outside curated analytical set
+perm_2020,PREPARER_NAME,,drop,trimmed: outside curated analytical set
+perm_2020,PREPARER_TITLE,,drop,trimmed: outside curated analytical set
+perm_2020,PREPARER_EMAIL,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_INFO_DECL_NAME,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_INFO_DECL_TITLE,,drop,trimmed: outside curated analytical set
+perm_2020,FOREIGN_WORKER_LIVE_IN_DOM_SVC_CNT,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_DECL_TITLE,,drop,trimmed: outside curated analytical set
+perm_2020,EMP_YEAR_COMMENCED_BUSINESS,employer_year_established,core,
+perm_2020,EMPLOYER_FEIN,employer_fein,passthrough,
+perm_2024,CASE_NUMBER,case_number,passthrough,
+perm_2024,CASE_STATUS,case_status,passthrough,
+perm_2024,RECEIVED_DATE,received_date,passthrough,
+perm_2024,DECISION_DATE,decision_date,passthrough,
+perm_2024,OCCUPATION_TYPE,occupation_type,passthrough,
+perm_2024,EMP_BUSINESS_NAME,employer_name,core,
+perm_2024,EMP_TRADE_NAME,employer_trade_name,core,
+perm_2024,EMP_ADDR1,employer_address1,core,
+perm_2024,EMP_ADDR2,employer_address2,core,
+perm_2024,EMP_CITY,employer_city,core,
+perm_2024,EMP_STATE,employer_state,core,
+perm_2024,EMP_POSTCODE,employer_postal_code,core,
+perm_2024,EMP_COUNTRY,employer_country,core,
+perm_2024,EMP_PROVINCE,employer_province,core,
+perm_2024,EMP_PHONE,employer_phone,core,
+perm_2024,EMP_PHONEEXT,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_FEIN,employer_fein,core,
+perm_2024,EMP_NAICS,naics_code,core,
+perm_2024,EMP_NUM_PAYROLL,employer_num_employees,core,
+perm_2024,EMP_YEAR_COMMENCED,employer_year_established,core,
+perm_2024,EMP_WORKER_INTEREST,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_RELATIONSHIP_WORKER,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_LAST_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_FIRST_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_MIDDLE_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_JOB_TITLE,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_ADDR1,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_ADDR2,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_CITY,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_STATE,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_POSTAL_CODE,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_COUNTRY,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_PROVINCE,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_PHONE,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_PHONEEXT,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_POC_EMAIL,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_REP_TYPE,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_LAST_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_FIRST_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_MIDDLE_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_ADDRESS1,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_ADDRESS2,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_CITY,agent_attorney_city,core,
+perm_2024,ATTY_AG_STATE,agent_attorney_state,core,
+perm_2024,ATTY_AG_POSTAL_CODE,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_COUNTRY,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_PROVINCE,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_PHONE,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_PHONE_EXT,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_EMAIL,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_LAW_FIRM_NAME,agent_attorney_firm_name,core,
+perm_2024,ATTY_AG_FEIN,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_STATE_BAR_NUMBER,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_GOOD_STANDING_STATE,,drop,trimmed: outside curated analytical set
+perm_2024,ATTY_AG_GOOD_STANDING_COURT,,drop,trimmed: outside curated analytical set
+perm_2024,FW_INFO_APPX_A_ATTACHED,,drop,trimmed: outside curated analytical set
+perm_2024,FW_INFO_ATTY_OR_AGENT,,drop,trimmed: outside curated analytical set
+perm_2024,JOB_OPP_PWD_NUMBER,pw_tracking_number,core,
+perm_2024,PWD_SOC_CODE,soc_code,core,
+perm_2024,PWD_SOC_TITLE,soc_title,core,
+perm_2024,JOB_TITLE,job_title,passthrough,
+perm_2024,JOB_OPP_PWD_ATTACHED,,drop,trimmed: outside curated analytical set
+perm_2024,JOB_OPP_WAGE_FROM,wage_offer_from,core,
+perm_2024,JOB_OPP_WAGE_TO,wage_offer_to,core,
+perm_2024,JOB_OPP_WAGE_PER,wage_offer_unit_of_pay,core,
+perm_2024,JOB_OPP_WAGE_CONDITIONS,,drop,trimmed: outside curated analytical set
+perm_2024,PRIMARY_WORKSITE_TYPE,,drop,trimmed: outside curated analytical set
+perm_2024,PRIMARY_WORKSITE_ADDR1,worksite_address1,core,
+perm_2024,PRIMARY_WORKSITE_ADDR2,worksite_address2,core,
+perm_2024,PRIMARY_WORKSITE_CITY,worksite_city,core,
+perm_2024,PRIMARY_WORKSITE_COUNTY,worksite_county,core,
+perm_2024,PRIMARY_WORKSITE_STATE,worksite_state,core,
+perm_2024,PRIMARY_WORKSITE_POSTAL_CODE,worksite_postal_code,core,
+perm_2024,PRIMARY_WORKSITE_BLS_AREA,,drop,trimmed: outside curated analytical set
+perm_2024,IS_MULTIPLE_LOCATIONS,is_multiple_locations,passthrough,
+perm_2024,IS_APPENDIX_B_ATTACHED,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_IS_FULLTIME_EMP,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_IS_LIVEIN_HOUSEHOLD,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_IS_PAID_EXPERIENCE,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_IS_FW_EXECUTED_CONT,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_IS_EMP_PROVIDED_CONT,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_ACCEPT_DIPLOMA_PWD,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_IS_FW_CURRENTLY_WRK,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_IS_FW_QUALIFY,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_EMP_WILL_ACCEPT,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_EMP_RELY_EXP,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_FW_GAIN_EXP,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_EMP_PAY_EDUCATION,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_JOB_EMP_PREMISES,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_JOB_COMBO_OCCUP,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_JOB_FOREIGN_LANGUAGE,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_JOB_REQ_EXCEED,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_EMP_USE_CREDENTIAL,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_EMP_REC_PAYMENT,,drop,trimmed: outside curated analytical set
+perm_2024,OTHER_REQ_EMP_LAYOFF,layoff_in_past_six_months,core,
+perm_2024,RECR_INFO_RECRUIT_SUPERVISED_REQ,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_INFO_JOB_START_DATE,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_INFO_JOB_END_DATE,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_INFO_IS_NEWSPAPER_SUNDAY,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_INFO_NEWSPAPER_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_INFO_AD_DATE1,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_INFO_RECRUIT_AD_TYPE,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_INFO_NEWSPAPER_NAME2,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_INFO_AD_DATE2,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_JOB_FAIR_FROM,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_JOB_FAIR_TO,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_EMP_WEBSITE_FROM,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_EMP_WEBSITE_TO,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_JOB_SEARCH_FROM,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_JOB_SEARCH_TO,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_ON_CAMPUS_FROM,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_ON_CAMPUS_TO,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_TRADE_ORG_FROM,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_TRADE_ORG_TO,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_PRIVATE_EMP_FROM,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_PRIVATE_EMP_TO,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_EMP_REFERRAL_FROM,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_EMP_REFERRAL_TO,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_CAMPUS_PLACEMENT_FROM,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_CAMPUS_PLACEMENT_TO,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_LOCAL_NEWSPAPER_FROM,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_LOCAL_NEWSPAPER_TO,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_RADIO_AD_FROM,,drop,trimmed: outside curated analytical set
+perm_2024,RECR_OCC_RADIO_AD_TO,,drop,trimmed: outside curated analytical set
+perm_2024,NOTICE_POST_BARGAIN_REP,,drop,trimmed: outside curated analytical set
+perm_2024,NOTICE_POST_BARGAIN_REP_PHYSICAL,,drop,trimmed: outside curated analytical set
+perm_2024,NOTICE_POST_BARGAIN_REP_ELECTRONIC,,drop,trimmed: outside curated analytical set
+perm_2024,NOTICE_POST_BARGAIN_REP_INHOUSE,,drop,trimmed: outside curated analytical set
+perm_2024,NOTICE_POST_BARGAIN_REP_PRIVATE,,drop,trimmed: outside curated analytical set
+perm_2024,NOTICE_POST_EMP_NOT_POSTED,,drop,trimmed: outside curated analytical set
+perm_2024,EMP_CERTIFY_COMPLIANCE,,drop,trimmed: outside curated analytical set
+perm_2024,DECL_PREP_LAST_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,DECL_PREP_FIRST_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,DECL_PREP_MIDDLE_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,DECL_PREP_LAWFIRM_FEIN,,drop,trimmed: outside curated analytical set
+perm_2024,DECL_PREP_FIRM_BUSINESS_NAME,,drop,trimmed: outside curated analytical set
+perm_2024,DECL_PREP_EMAIL,,drop,trimmed: outside curated analytical set
