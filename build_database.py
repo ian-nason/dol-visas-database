@@ -111,8 +111,15 @@ def canonical_type(col: str) -> str:
 def cast_expr(source_sql: str, canonical: str) -> str:
     """Typed cast of an all_varchar source expression."""
     if canonical in DATE_COLS:
+        # read_xlsx(all_varchar=true) hands back Excel date serials as text
+        # ('45931' = 2025-10-01). Neither TRY_CAST nor strptime parses those,
+        # which left every date column 100% NULL in the July 2026 release.
+        # Accept ISO text, US text, and serials in a sane range (1950-2060).
+        serial = f"TRY_CAST({source_sql} AS DOUBLE)"
         return (f"COALESCE(TRY_CAST({source_sql} AS DATE), "
-                f"TRY_STRPTIME({source_sql}, '%m/%d/%Y')::DATE)")
+                f"TRY_STRPTIME({source_sql}, '%m/%d/%Y')::DATE, "
+                f"CASE WHEN {serial} BETWEEN 18264 AND 58440 "
+                f"THEN DATE '1899-12-30' + CAST({serial} AS INTEGER) END)")
     if canonical in DOUBLE_COLS:
         cleaned = (f"NULLIF(TRIM(REPLACE(REPLACE({source_sql}, '$', ''), "
                    f"',', '')), '')")
@@ -440,6 +447,13 @@ def run_validation(con, db_path: Path):
             merged[era] = sorted(set(merged.get(era, [])) | set(cols))
         known_path.write_text(json.dumps(merged, indent=2) + "\n")
         print(f"    wrote {known_path} ({sum(len(v) for v in merged.values())} columns over {len(merged)} eras)")
+    for tbl, col in (("lca", "decision_date"), ("lca", "received_date"),
+                     ("perm", "decision_date"), ("perm", "received_date")):
+        tot = con.execute(f"SELECT COUNT(*) FROM {tbl}").fetchone()[0]
+        nn = con.execute(f"SELECT COUNT({col}) FROM {tbl}").fetchone()[0]
+        mx = con.execute(f"SELECT MAX({col}) FROM {tbl}").fetchone()[0]
+        check(f"{tbl}.{col} is populated (> 90% non-null) and recent", nn > 0.9 * tot and mx is not None and str(mx) >= "2026-01-01",
+              f"{nn / tot:.1%} non-null, max {mx}")
     for tbl, fy_min in (("lca", 2015), ("perm", 2015)):
         fys = {r[0] for r in con.execute(f"SELECT DISTINCT fiscal_year FROM {tbl}").fetchall()}
         expected = set(range(fy_min, 2027))

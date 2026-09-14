@@ -27,13 +27,13 @@ H-1B/H-1B1/E-3 Labor Condition Applications, one row per application per disclos
 | `agree_to_lc_statement` | VARCHAR | 36.5% | N |
 | `amended_petition` | INTEGER | 16.9% | 0 |
 | `appendix_a_attached` | VARCHAR | 43.1% | N/A |
-| `begin_date` | DATE | 91.1% | 2010-06-07 |
+| `begin_date` | DATE | 0.0% | 2008-04-09 |
 | `case_number` | VARCHAR | 0.0% | I-200-09121-701936 |
 | `case_status` | VARCHAR | 0.0% | CERTIFIED |
 | `change_employer` | INTEGER | 16.9% | 0 |
 | `change_previous_employment` | INTEGER | 16.9% | 0 |
 | `continued_employment` | INTEGER | 16.9% | 0 |
-| `decision_date` | DATE | 100.0% |  |
+| `decision_date` | DATE | 0.0% | 2014-10-01 |
 | `employer_address1` | VARCHAR | 0.0% | 	  225 West Wacker Drive |
 | `employer_address2` | VARCHAR | 61.7% | 					 |
 | `employer_city` | VARCHAR | 0.0% | 	  Palo Alto |
@@ -61,7 +61,7 @@ H-1B/H-1B1/E-3 Labor Condition Applications, one row per application per disclos
 | `employer_postal_code` | VARCHAR | 0.0% | 0 |
 | `employer_province` | VARCHAR | 83.1% | "N/A" |
 | `employer_state` | VARCHAR | 0.0% | AK |
-| `end_date` | DATE | 91.1% | 2010-08-10 |
+| `end_date` | DATE | 0.0% | 2010-08-10 |
 | `full_time_position` | VARCHAR | 8.7% | N |
 | `h_1b_dependent` | VARCHAR | 2.3% | N |
 | `job_title` | VARCHAR | 0.0% | 	  Product Management Associate |
@@ -73,7 +73,7 @@ H-1B/H-1B1/E-3 Labor Condition Applications, one row per application per disclos
 | `new_concurrent_emp` | VARCHAR | 91.3% | 0 |
 | `new_concurrent_employment` | INTEGER | 25.7% | 0 |
 | `new_employment` | INTEGER | 16.9% | 0 |
-| `original_cert_date` | DATE | 100.0% |  |
+| `original_cert_date` | DATE | 94.6% | 2009-07-29 |
 | `preparer_business_name` | VARCHAR | 70.7% | (678) 553-7349 |
 | `preparer_email` | VARCHAR | 70.6% | 	juan.mata@balglobal.com |
 | `preparer_first_name` | VARCHAR | 70.7% | 	Kiranmai |
@@ -92,7 +92,7 @@ H-1B/H-1B1/E-3 Labor Condition Applications, one row per application per disclos
 | `pw_wage_source` | VARCHAR | 66.0% | CBA |
 | `pw_wage_source_other` | VARCHAR | 66.2% | " OFLC ONLINE DATA CENTER" |
 | `pw_wage_source_year` | INTEGER | 66.0% | 0 |
-| `received_date` | DATE | 100.0% |  |
+| `received_date` | DATE | 0.0% | 2009-07-28 |
 | `secondary_entity` | VARCHAR | 35.2% | N |
 | `secondary_entity_business_name` | VARCHAR | 83.1% | 	 AMD Inc |
 | `soc_code` | VARCHAR | 0.0% | 030 |
@@ -134,7 +134,7 @@ PERM permanent labor certification applications, one row per application per dis
 | `class_of_admission` | VARCHAR | 27.6% | A-3 |
 | `combination_occupation` | VARCHAR | 61.3% | N |
 | `country_of_citizenship` | VARCHAR | 21.2% | AFGHANISTAN |
-| `decision_date` | DATE | 100.0% |  |
+| `decision_date` | DATE | 0.0% | 2014-10-01 |
 | `employer_address1` | VARCHAR | 0.0% | 	274 LAKE WALES DR |
 | `employer_address2` | VARCHAR | 65.2% | 	STE  100 |
 | `employer_city` | VARCHAR | 0.0% | 	 	  BRECKSVILLE |
@@ -166,17 +166,17 @@ PERM permanent labor certification applications, one row per application per dis
 | `naics_code` | VARCHAR | 40.2% | -3133 |
 | `occupation_type` | VARCHAR | 78.9% | College/University Teacher |
 | `orig_case_number` | VARCHAR | 99.9% | #11684973 |
-| `orig_file_date` | DATE | 100.0% |  |
+| `orig_file_date` | DATE | 99.9% | 1992-04-14 |
 | `professional_occupation` | VARCHAR | 61.3% | N |
-| `pw_determination_date` | DATE | 92.3% | 0014-07-15 |
-| `pw_expiration_date` | DATE | 92.3% | 0214-06-30 |
+| `pw_determination_date` | DATE | 21.2% | 0014-07-15 |
+| `pw_expiration_date` | DATE | 21.3% | 0214-06-30 |
 | `pw_level` | VARCHAR | 25.9% | I |
 | `pw_tracking_number` | VARCHAR | 0.4% | *TN ONLY PROVID |
 | `pw_unit_of_pay` | VARCHAR | 21.3% | Bi-Weekly |
 | `pw_wage` | DOUBLE | 21.2% | 0.0 |
 | `pw_wage_source` | VARCHAR | 21.2% | CBA |
 | `pw_wage_source_other` | VARCHAR | 95.5% | &quot;OES&quot; |
-| `received_date` | DATE | 100.0% |  |
+| `received_date` | DATE | 0.0% | 2005-09-23 |
 | `refile` | VARCHAR | 37.7% | N |
 | `required_experience` | VARCHAR | 21.2% | N |
 | `required_experience_months` | INTEGER | 56.2% | 0 |

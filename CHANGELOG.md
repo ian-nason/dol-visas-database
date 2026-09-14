@@ -6,6 +6,12 @@
   2026-06-30, posted August 2026), replacing the cumulative Q2 files.
   Total rows 8,533,076 → 8,812,639: `lca` 7,479,697 (FY2026 to date
   437,496, was 259,200), `perm` 1,332,942 (FY2026 to date 112,550).
+- **Fix: date columns were 100% NULL in the July release.** DuckDB's
+  `read_xlsx(all_varchar=true)` returns Excel date serials as text (`45931`),
+  which the DATE cast silently rejected, so `decision_date`, `received_date`,
+  `original_cert_date` and `orig_file_date` were empty in both tables (and
+  `begin_date`/`end_date` partly). The cast now converts serials, and
+  validation fails if `decision_date`/`received_date` are not populated.
 - DOL made no layout changes: the Q3 LCA (98 columns) and PERM (137 columns)
   headers are identical to Q2, so the crosswalks are unchanged.
 - Builder now fails loudly if a source file carries a column that is neither
