@@ -5,7 +5,7 @@ Application** and **PERM permanent labor certification** application disclosed
 by the DOL Office of Foreign Labor Certification, FY2015 through the current
 fiscal year.
 
-**~8.5M rows** across 2 tables: `lca` (~7.25M) and `perm` (~1.28M).
+**~8.8M rows** across 2 tables: `lca` (~7.48M) and `perm` (~1.33M).
 
 ## Quick Start (Remote Query)
 
