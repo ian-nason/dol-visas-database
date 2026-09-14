@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-09-14 — Data refresh (FY2026 Q3)
+
+- Rebuilt from the OFLC FY2026 Q3 disclosure files (determinations through
+  2026-06-30, posted August 2026), replacing the cumulative Q2 files.
+  Total rows 8,533,076 → 8,812,639: `lca` 7,479,697 (FY2026 to date
+  437,496, was 259,200), `perm` 1,332,942 (FY2026 to date 112,550).
+- DOL made no layout changes: the Q3 LCA (98 columns) and PERM (137 columns)
+  headers are identical to Q2, so the crosswalks are unchanged.
+- Builder now fails loudly if a source file carries a column that is neither
+  in the crosswalk nor in the new `known_unmapped.json` (the 464 columns we
+  intentionally drop, e.g. FY2019 secondary-worksite groups 2-10); previously
+  unknown columns were dropped silently. Validation now also asserts every
+  fiscal year FY2015-FY2026 is present and `is_latest` is unique per case.
+- DuckDB memory limit lowered to 5 GB (was 8 GB) with 4 threads so the build
+  fits the 10 GB build VM; `publish_to_hf.py --card-only` re-uploads the
+  dataset card without re-uploading the file.
+
 ## 2026-07-07 — Initial release
 
 - `lca`: H-1B/H-1B1/E-3 Labor Condition Applications, FY2015 through

@@ -10,6 +10,8 @@ once per disclosure file; `is_latest` flags the most recent disclosure per
 case number within each program.
 """
 import argparse
+import json
+import os
 import csv
 import re
 import sys
@@ -21,6 +23,11 @@ from pathlib import Path
 import duckdb
 import requests
 import yaml
+
+# Source columns that no crosswalk era maps (filled by build_table).
+UNMAPPED_COLUMNS: list[tuple[str, list[str]]] = []
+ALLOW_UNMAPPED = False
+WRITE_KNOWN_UNMAPPED = False
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
@@ -180,9 +187,19 @@ def build_table(con, program: str, files: list[Path], crosswalk) -> int:
             f"SELECT * FROM read_xlsx('{path}', all_varchar=true) LIMIT 0"
         ).description]
         canon_from_source = {}
+        unmapped = []
         for src in cols_here:
             if src in mapping:
                 canon_from_source[mapping[src]] = f'"{src}"'
+            else:
+                unmapped.append(src)
+        if unmapped:
+            # A new DOL column that is not in the crosswalk would otherwise be
+            # dropped silently. Record it so run_validation() can fail the build.
+            UNMAPPED_COLUMNS.append((fname, unmapped))
+            print(f"    WARNING: {fname}: {len(unmapped)} source column(s) not in "
+                  f"crosswalk era '{era}' and will be DROPPED: {unmapped[:8]}"
+                  f"{'...' if len(unmapped) > 8 else ''}")
 
         exprs = []
         for c in canon_cols:
@@ -388,11 +405,67 @@ def run_validation(con, db_path: Path):
     ).fetchone()[0]
     print(f"\n  Total rows: {total:,}")
 
+    # ---- Regression guards ----
+    print("\n  Audit checks:")
+    failures = 0
+
+    def check(name, ok, detail=""):
+        nonlocal failures
+        print(f"    [{'PASS' if ok else 'FAIL'}] {name}" + (f"  ({detail})" if detail else ""))
+        if not ok:
+            failures += 1
+
+    # DOL files carry many columns we deliberately do not load (e.g. the
+    # WORKSITE_*_2..10 repeats). known_unmapped.json records those per crosswalk
+    # era; the build fails only when a file has a NEW unmapped column, which
+    # means DOL changed the layout and the crosswalk needs a row.
+    known_path = Path("known_unmapped.json")
+    known = json.loads(known_path.read_text()) if known_path.exists() else {}
+    new_unmapped = []
+    for fname, cols in UNMAPPED_COLUMNS:
+        era = era_of_file(fname)
+        novel = sorted(set(cols) - set(known.get(era, [])))
+        if novel:
+            new_unmapped.append((fname, era, novel))
+    check("no NEW unmapped source columns (vs known_unmapped.json)",
+          not new_unmapped or ALLOW_UNMAPPED,
+          "; ".join(f"{f} [{e}]: {c[:5]}" for f, e, c in new_unmapped)[:400])
+    if new_unmapped:
+        print("    To accept these as intentionally dropped, add them to known_unmapped.json "
+              "(python build_database.py --write-known-unmapped) or add crosswalk rows.")
+    if WRITE_KNOWN_UNMAPPED:
+        merged = {k: sorted(set(v)) for k, v in known.items()}
+        for fname, cols in UNMAPPED_COLUMNS:
+            era = era_of_file(fname)
+            merged[era] = sorted(set(merged.get(era, [])) | set(cols))
+        known_path.write_text(json.dumps(merged, indent=2) + "\n")
+        print(f"    wrote {known_path} ({sum(len(v) for v in merged.values())} columns over {len(merged)} eras)")
+    for tbl, fy_min in (("lca", 2015), ("perm", 2015)):
+        fys = {r[0] for r in con.execute(f"SELECT DISTINCT fiscal_year FROM {tbl}").fetchall()}
+        expected = set(range(fy_min, 2027))
+        check(f"{tbl} has every fiscal year {fy_min}-2026", expected <= fys,
+              f"missing: {sorted(expected - fys)}" if expected - fys else "complete")
+        n_latest = con.execute(f"SELECT COUNT(*) FROM {tbl} WHERE is_latest").fetchone()[0]
+        n_case = con.execute(f"SELECT COUNT(DISTINCT case_number) FROM {tbl}").fetchone()[0]
+        check(f"{tbl}: one is_latest row per case_number", n_latest == n_case,
+              f"{n_latest:,} latest vs {n_case:,} cases")
+    print(f"\n  Audit checks: {failures} failure(s)")
+    return failures
+
 
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--output", type=Path, default=Path(DEFAULT_OUTPUT))
+    p.add_argument("--allow-unmapped", action="store_true",
+                   help="Do not fail the build when a source file has columns "
+                        "missing from the crosswalk (they are dropped)")
+    p.add_argument("--write-known-unmapped", action="store_true",
+                   help="Record every unmapped source column of this run in "
+                        "known_unmapped.json (accept them as intentionally dropped)")
     args = p.parse_args()
+    global ALLOW_UNMAPPED, WRITE_KNOWN_UNMAPPED
+    ALLOW_UNMAPPED = args.allow_unmapped
+    WRITE_KNOWN_UNMAPPED = args.write_known_unmapped
 
     t0 = time.time()
     sources = yaml.safe_load(open("sources.yaml"))
@@ -404,7 +477,10 @@ def main():
     con = duckdb.connect(str(args.output))
     con.execute("SET preserve_insertion_order = false")
     con.execute(f"SET temp_directory = '{args.output.resolve()}.tmp'")
-    con.execute("SET memory_limit = '8GB'")
+    # read_xlsx is memory-hungry and the WSL VM is capped at 10 GB; leave
+    # headroom. Override with DATAPOND_MEMORY_LIMIT / DATAPOND_THREADS.
+    con.execute(f"SET memory_limit = '{os.environ.get('DATAPOND_MEMORY_LIMIT', '5GB')}'")
+    con.execute(f"SET threads = {int(os.environ.get('DATAPOND_THREADS', 4))}")
 
     built = {}
     for program, cw_path in (("lca", "crosswalk_lca.csv"),
@@ -422,9 +498,12 @@ def main():
 
     print("\n[5/5] Validation")
     con.execute("CHECKPOINT")
-    run_validation(con, args.output)
+    failures = run_validation(con, args.output)
     con.close()
     print(f"\nBUILD DONE in {(time.time() - t0) / 60:.1f} min")
+    if failures:
+        print(f"BUILD FAILED: {failures} audit check(s) failed -- do not publish this file")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
