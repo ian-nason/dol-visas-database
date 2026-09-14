@@ -316,7 +316,8 @@ def build_columns_table(con):
         CREATE TABLE _columns AS
         SELECT c.table_name, c.column_name, c.data_type,
                CAST(NULL AS DOUBLE) AS null_pct,
-               CAST(NULL AS VARCHAR) AS example_value
+               CAST(NULL AS VARCHAR) AS example_value,
+               CAST(NULL AS VARCHAR) AS join_hint
         FROM information_schema.columns c
         WHERE c.table_name IN ('lca', 'perm')
         ORDER BY c.table_name, c.ordinal_position
@@ -324,6 +325,13 @@ def build_columns_table(con):
     rows = con.execute(
         "SELECT table_name, column_name FROM _columns"
     ).fetchall()
+    # Join hints (the datapond clients show these next to each column).
+    for col, hint in {
+        "case_number": "DOL case identifier; unique per program with is_latest",
+        "employer_name": "Employer as filed; not normalized across years",
+        "fiscal_year": "Federal fiscal year of the disclosure file",
+    }.items():
+        con.execute("UPDATE _columns SET join_hint = ? WHERE column_name = ?", [hint, col])
     for tbl, col in rows:
         stats = con.execute(f'''
             SELECT ROUND(100.0 * COUNT(*) FILTER (WHERE "{col}" IS NULL)
