@@ -1,0 +1,21 @@
+repo: Nason/dol-visas-database
+file: dol_visas.duckdb
+pretty_name: DOL H-1B LCA & PERM Labor Certification Database
+title: DOL Visas Database (H-1B LCA + PERM)
+license: mit
+tags: [immigration, h1b, perm, labor, visas, dol]
+size_category: 1M<n<10M
+alias: visas
+table_columns: [description, row_count, column_count, date_range]
+intro: |
+  Every H-1B/H-1B1/E-3 Labor Condition Application and PERM permanent labor
+  certification application disclosed by the DOL Office of Foreign Labor
+  Certification, FY2015 to present, as a single queryable DuckDB database.
+quick_start_sql: |
+  SELECT employer_name, COUNT(*) AS certified_lcas
+  FROM visas.lca
+  WHERE fiscal_year = 2025 AND case_status = 'CERTIFIED' AND is_latest
+  GROUP BY 1 ORDER BY 2 DESC LIMIT 10;
+footer: |
+  Build pipeline, per-era column crosswalks, and full documentation:
+  https://github.com/ian-nason/dol-visas-database

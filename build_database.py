@@ -24,6 +24,9 @@ import duckdb
 import requests
 import yaml
 
+from datapond_build import build_columns_table, export_dictionary
+from datapond_build.session import tune
+
 # Source columns that no crosswalk era maps (filled by build_table).
 UNMAPPED_COLUMNS: list[tuple[str, list[str]]] = []
 ALLOW_UNMAPPED = False
@@ -287,6 +290,21 @@ def normalize_values(con):
 # Metadata, dictionary, validation (datapond conventions)
 # ---------------------------------------------------------------------------
 
+# Join hints shown next to columns by the datapond clients (applied by column name).
+JOIN_HINTS = {
+    "case_number": "DOL case identifier; unique per program with is_latest",
+    "employer_name": "Employer as filed; not normalized across years",
+    "fiscal_year": "Federal fiscal year of the disclosure file",
+}
+DICTIONARY_INTRO = [
+    "Built from DOL OFLC quarterly disclosure files "
+    "(https://www.dol.gov/agencies/eta/foreign-labor/performance).",
+    "Column availability varies by fiscal-year era; see crosswalk_lca.csv "
+    "and crosswalk_perm.csv in the build repo for the exact per-era "
+    "source-column mappings and every documented drop.",
+]
+
+
 def build_metadata(con, built: dict[str, int]):
     con.execute("""
         CREATE OR REPLACE TABLE _metadata (
@@ -308,72 +326,6 @@ def build_metadata(con, built: dict[str, int]):
              "DOL OFLC disclosure files (dol.gov/agencies/eta/foreign-labor/performance)",
              f"FY{fy[0]} to FY{fy[1]}", now],
         )
-
-
-def build_columns_table(con):
-    con.execute("DROP TABLE IF EXISTS _columns")
-    con.execute("""
-        CREATE TABLE _columns AS
-        SELECT c.table_name, c.column_name, c.data_type,
-               CAST(NULL AS DOUBLE) AS null_pct,
-               CAST(NULL AS VARCHAR) AS example_value,
-               CAST(NULL AS VARCHAR) AS join_hint
-        FROM information_schema.columns c
-        WHERE c.table_name IN ('lca', 'perm')
-        ORDER BY c.table_name, c.ordinal_position
-    """)
-    rows = con.execute(
-        "SELECT table_name, column_name FROM _columns"
-    ).fetchall()
-    # Join hints (the datapond clients show these next to each column).
-    for col, hint in {
-        "case_number": "DOL case identifier; unique per program with is_latest",
-        "employer_name": "Employer as filed; not normalized across years",
-        "fiscal_year": "Federal fiscal year of the disclosure file",
-    }.items():
-        con.execute("UPDATE _columns SET join_hint = ? WHERE column_name = ?", [hint, col])
-    for tbl, col in rows:
-        stats = con.execute(f'''
-            SELECT ROUND(100.0 * COUNT(*) FILTER (WHERE "{col}" IS NULL)
-                   / COUNT(*), 1),
-                   MIN(CAST("{col}" AS VARCHAR)) FILTER (WHERE "{col}" IS NOT NULL)
-            FROM {tbl}
-        ''').fetchone()
-        con.execute(
-            "UPDATE _columns SET null_pct = ?, example_value = ? "
-            "WHERE table_name = ? AND column_name = ?",
-            [stats[0], (stats[1] or "")[:80], tbl, col],
-        )
-
-
-def export_dictionary(con, out: Path):
-    lines = [
-        "# dol-visas Data Dictionary",
-        "",
-        "Built from DOL OFLC quarterly disclosure files "
-        "(https://www.dol.gov/agencies/eta/foreign-labor/performance).",
-        "Column availability varies by fiscal-year era; see crosswalk_lca.csv "
-        "and crosswalk_perm.csv in the build repo for the exact per-era "
-        "source-column mappings and every documented drop.",
-        "",
-    ]
-    for tbl in ("lca", "perm"):
-        meta = con.execute(
-            "SELECT description, row_count FROM _metadata WHERE table_name = ?",
-            [tbl],
-        ).fetchone()
-        lines += [f"## {tbl}", "", f"{meta[0]}. {meta[1]:,} rows.", "",
-                  "| Column | Type | Null % | Example |",
-                  "|--------|------|--------|---------|"]
-        for col, dt, np, ex in con.execute(
-            "SELECT column_name, data_type, null_pct, example_value "
-            "FROM _columns WHERE table_name = ? ", [tbl]
-        ).fetchall():
-            ex = (ex or "").replace("|", "/")
-            lines.append(f"| `{col}` | {dt} | {np}% | {ex} |")
-        lines.append("")
-    out.write_text("\n".join(lines), encoding="utf-8")
-    print(f"  Exported {out}")
 
 
 def run_validation(con, db_path: Path):
@@ -497,12 +449,9 @@ def main():
 
     args.output.unlink(missing_ok=True)
     con = duckdb.connect(str(args.output))
-    con.execute("SET preserve_insertion_order = false")
-    con.execute(f"SET temp_directory = '{args.output.resolve()}.tmp'")
-    # read_xlsx is memory-hungry and the WSL VM is capped at 10 GB; leave
+    # read_xlsx is memory-hungry and the build VM is capped at 10 GB; leave
     # headroom. Override with DATAPOND_MEMORY_LIMIT / DATAPOND_THREADS.
-    con.execute(f"SET memory_limit = '{os.environ.get('DATAPOND_MEMORY_LIMIT', '5GB')}'")
-    con.execute(f"SET threads = {int(os.environ.get('DATAPOND_THREADS', 4))}")
+    tune(con, args.output, memory_limit="5GB", threads=4)
 
     built = {}
     for program, cw_path in (("lca", "crosswalk_lca.csv"),
@@ -515,8 +464,9 @@ def main():
     print("\n[4/5] Metadata and dictionary")
     normalize_values(con)
     build_metadata(con, built)
-    build_columns_table(con)
-    export_dictionary(con, Path("DICTIONARY.md"))
+    build_columns_table(con, join_hints=JOIN_HINTS)
+    export_dictionary(con, Path("DICTIONARY.md"), title="dol-visas Data Dictionary",
+                      intro=DICTIONARY_INTRO, style="backtick", tables=("lca", "perm"))
 
     print("\n[5/5] Validation")
     con.execute("CHECKPOINT")

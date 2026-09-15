@@ -161,7 +161,7 @@ PERM permanent labor certification applications, one row per application per dis
 | `job_education_min_other` | VARCHAR | 97.7% | (7) years or more of Construction and/or Infrared Work Experience |
 | `job_title` | VARCHAR | 0.0% | 	CONSTRUCTION PROJECT MANAGER (FRAMING AND OPERATIONS) |
 | `layoff_in_past_six_months` | VARCHAR | 0.0% | N |
-| `major_field_of_study` | VARCHAR | 33.2% | &quot;Computer Science&quot;, &quot;Information Technology and Management&quot;  |
+| `major_field_of_study` | VARCHAR | 33.2% | &quot;Computer Science&quot;, &quot;Information Technology and Management&quo... |
 | `minimum_education` | VARCHAR | 21.2% | Associate's |
 | `naics_code` | VARCHAR | 40.2% | -3133 |
 | `occupation_type` | VARCHAR | 78.9% | College/University Teacher |
