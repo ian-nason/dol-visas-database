@@ -26,6 +26,7 @@ import yaml
 
 from datapond_build import build_columns_table, export_dictionary
 from datapond_build.session import tune
+from datapond_build.fetch import download_file as fetch_download
 
 # Source columns that no crosswalk era maps (filled by build_table).
 UNMAPPED_COLUMNS: list[tuple[str, list[str]]] = []
@@ -134,26 +135,11 @@ def cast_expr(source_sql: str, canonical: str) -> str:
 
 
 def download_file(url: str, dest: Path) -> bool:
-    if dest.exists() and dest.stat().st_size > 0:
-        return True
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    for attempt in range(3):
-        try:
-            r = requests.get(url, stream=True, timeout=120)
-            r.raise_for_status()
-            total = int(r.headers.get("content-length", 0))
-            received = 0
-            with open(dest, "wb") as fh:
-                for chunk in r.iter_content(1024 * 256):
-                    fh.write(chunk)
-                    received += len(chunk)
-            if total and received != total:
-                raise IOError(f"truncated: {received}/{total}")
-            return True
-        except Exception as e:
-            print(f"    WARNING: download attempt {attempt + 1}/3 {url}: {e}")
-            dest.unlink(missing_ok=True)
-    return False
+    """Fetch a disclosure workbook unless the cached copy still matches the OFLC server
+    (ETag / Last-Modified / size recorded in ``<file>.meta.json``); DATAPOND_REFRESH=skip
+    reuses whatever is on disk. Atomic replacement; the old file survives failures."""
+    refresh = "skip" if os.environ.get("DATAPOND_REFRESH") == "skip" else "if-changed"
+    return fetch_download(url, dest, refresh=refresh, retries=3, timeout=120, quiet=False)
 
 
 def download_all(sources: dict) -> list[tuple[str, Path]]:

@@ -220,8 +220,8 @@ wheels = [
 
 [[package]]
 name = "datapond-build"
-version = "0.1.0"
-source = { git = "https://github.com/datapond-db/datapond-build?tag=v0.1.0#81555ab8c9ed5771565ba2ed2314b232ee42a992" }
+version = "0.1.3"
+source = { git = "https://github.com/datapond-db/datapond-build?tag=v0.1.3#ac06b6eda4d642160a0b9c12c6e89a202f4f8912" }
 dependencies = [
     { name = "duckdb" },
     { name = "huggingface-hub" },
@@ -245,7 +245,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "datapond-build", git = "https://github.com/datapond-db/datapond-build?tag=v0.1.0" },
+    { name = "datapond-build", git = "https://github.com/datapond-db/datapond-build?tag=v0.1.3" },
     { name = "duckdb", specifier = ">=1.0" },
     { name = "huggingface-hub" },
     { name = "pandas" },

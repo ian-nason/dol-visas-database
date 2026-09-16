@@ -2,7 +2,9 @@ repo: Nason/dol-visas-database
 file: dol_visas.duckdb
 pretty_name: DOL H-1B LCA & PERM Labor Certification Database
 title: DOL Visas Database (H-1B LCA + PERM)
-license: mit
+license: other
+license_name: public-domain
+license_link: https://www.dol.gov/agencies/eta/foreign-labor/performance
 tags: [immigration, h1b, perm, labor, visas, dol]
 size_category: 1M<n<10M
 alias: visas
