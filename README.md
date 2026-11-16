@@ -1,54 +1,67 @@
 # DOL Visas Database (H-1B LCA + PERM)
 
-A clean, queryable DuckDB database of every **H-1B/H-1B1/E-3 Labor Condition
-Application** and **PERM permanent labor certification** application disclosed
-by the DOL Office of Foreign Labor Certification, FY2015 through the current
-fiscal year.
+Employer applications disclosed by the Department of Labor (DOL) Office of Foreign Labor Certification for H-1B, H-1B1 and E-3 Labor Condition Applications (LCAs) and permanent labor certification (PERM). The snapshot covers fiscal year (FY) 2015 through FY2026 Q3, with determinations through June 30, 2026. Use it to study reported employers, jobs, worksites, offered wages and case statuses. Records describe applications and disclosure appearances, not issued visas or unique workers. Use `is_latest` when selecting the most recent disclosed appearance of a case, and keep program, wage unit and partial-year coverage explicit.
 
-**~8.8M rows** across 2 tables: `lca` (~7.48M) and `perm` (~1.33M).
+<a id="quick-start"></a>
 
-## Quick Start (Remote Query)
+## Start querying
 
-```sql
-INSTALL httpfs;
-LOAD httpfs;
-ATTACH 'https://huggingface.co/datasets/Nason/dol-visas-database/resolve/main/dol_visas.duckdb' AS visas (READ_ONLY);
+Preview up to five latest-disclosed Labor Condition Application records for fiscal year 2025, showing the case number, employer and recorded case status. `is_latest` keeps the most recently disclosed appearance of each application. These H-1B, H-1B1 and E-3 program applications are not issued visas.
 
--- Top H-1B employers by certified LCAs, FY2025
-SELECT employer_name, COUNT(*) AS certified
-FROM visas.lca
-WHERE fiscal_year = 2025 AND case_status = 'CERTIFIED' AND is_latest
-GROUP BY 1 ORDER BY 2 DESC LIMIT 10;
+Choose R or Python. Install the datapond package once: use `install.packages("datapond")` in R, or run `python -m pip install datapond` in a terminal.
 
--- Median offered wage by SOC title, FY2025 (annual salaries only)
-SELECT soc_title, MEDIAN(wage_rate_of_pay_from) AS median_wage, COUNT(*) AS n
-FROM visas.lca
-WHERE fiscal_year = 2025 AND wage_unit_of_pay = 'Year' AND is_latest
-GROUP BY 1 HAVING n >= 500 ORDER BY median_wage DESC LIMIT 20;
+### R
 
--- PERM approval rate by fiscal year
-SELECT fiscal_year,
-       ROUND(100.0 * COUNT(*) FILTER (WHERE case_status LIKE 'CERTIFIED%')
-             / COUNT(*), 1) AS pct_certified
-FROM visas.perm WHERE is_latest
-GROUP BY 1 ORDER BY 1;
+```r
+library(datapond)
+con <- dp_connect("dol-visas")
+tryCatch({
+  DBI::dbExecute(con, "SET threads=1")
+  DBI::dbExecute(con, "SET memory_limit='128MiB'")
+  DBI::dbExecute(con, "SET max_temp_directory_size='0B'")
+  print(DBI::dbGetQuery(con, "SELECT case_number,employer_name,case_status FROM lca WHERE fiscal_year=2025 AND is_latest LIMIT 5"))
+}, finally = dp_disconnect(con))
 ```
 
-Or with the [datapond](https://pypi.org/project/datapond/) package:
+### Python
 
 ```python
 import datapond
-visas = datapond.connect('dol-visas')
+con = datapond.connect('dol-visas')
+try:
+    con.execute("SET threads=1")
+    con.execute("SET memory_limit='128MiB'")
+    con.execute("SET max_temp_directory_size='0B'")
+    print(con.execute("""SELECT case_number,employer_name,case_status FROM lca WHERE fiscal_year=2025 AND is_latest LIMIT 5""").fetchall())
+finally:
+    con.close()
 ```
 
-## Tables
+Queries run on your computer and read the byte ranges they need. A small result can still require a large scan. These examples limit DuckDB to one thread and a 128 MiB buffer pool with disk spill disabled; that is not a limit on the entire R or Python process. Larger analyses may need more memory or a local download with enough disk space.
+
+<a id="additional-dataset-notes"></a>
+
+<a id="tables"></a>
+
+<a id="coverage-fields-and-sources"></a>
+
+## Tables and coverage
+
+**About 8.8 million disclosure rows across two tables.**
 
 | Table | Rows | Description |
 |-------|------|-------------|
-| `lca` | ~7.25M | One row per LCA per disclosure file, FY2015+ (H-1B, H-1B1, E-3) |
-| `perm` | ~1.28M | One row per PERM application per disclosure file, FY2015+ |
+| `lca` | 7,479,697 | One row per LCA per disclosure file, FY2015+ (H-1B, H-1B1, E-3) |
+| `perm` | 1,332,942 | One row per PERM application per disclosure file, FY2015+ |
 
-## Researcher caveats — read before publishing numbers
+See the [data dictionary](https://github.com/ian-nason/dol-visas-database/blob/main/DICTIONARY.md) for column definitions.
+
+<a id="researcher-caveats--read-before-publishing-numbers"></a>
+
+Every row carries `fiscal_year`, `quarter` (FY2020+ LCA files only), and
+`source_file`.
+
+## Interpreting applications and wages
 
 1. **One row per disclosure appearance, not per case.** A case that is
    certified in one file and withdrawn/amended in a later one appears
@@ -72,25 +85,69 @@ visas = datapond.connect('dol-visas')
    All other years publish a single (primary) worksite.
 5. **Wages need unit filtering.** `wage_rate_of_pay_from` mixes hourly,
    weekly, monthly, and annual amounts — always filter or normalize by
-   `wage_unit_of_pay`. FY2015-16 published a single wage value that is
-   split into from/to at build time.
-6. **The current fiscal year is partial** (cumulative through the latest
-   quarterly release; see `quarter` and `source_file`). Pre-FY2020 LCA
+   `wage_unit_of_pay`. FY2015-16 published a single wage value; that value appears in both the from/to fields.
+6. **FY2026 is partial** (cumulative through Q3, June 30, 2026;
+   see `quarter` and `source_file`). Pre-FY2020 LCA
    files are end-of-year snapshots; FY2020+ are per-quarter files.
-7. **Categorical values are normalized at build time** (casing/punctuation
-   unified: `case_status` is always UPPER like `CERTIFIED-WITHDRAWN`;
+7. **Stored categorical values use consistent casing and punctuation** ( `case_status` is always UPPER like `CERTIFIED-WITHDRAWN`;
    `pw_wage_level` is `I`-`IV`; Y/N flags are `Y`/`N`).
 8. **Not included in v1:** H-2A, H-2B, CW-1, prevailing wage determination
    files, pre-FY2015 files (formats differ substantially; candidates for a
    future version), and the FY2026+ LCA worksites addendum.
 
-## Provenance
+<a id="advanced-access-quick-start-remote-query"></a>
 
-Every row carries `fiscal_year`, `quarter` (FY2020+ LCA files only), and
-`source_file`. Source: [OFLC Performance Data](https://www.dol.gov/agencies/eta/foreign-labor/performance)
+## More example queries
+
+These direct DuckDB examples count certified LCA records by employer, compare annual offered wages by occupation, and calculate the share of latest PERM records whose status begins with CERTIFIED. Standard Occupational Classification (SOC) identifies occupations. The wage result is the median offered annual wage in U.S. dollars, not an hourly rate; the PERM percentage counts applications, not visas or workers.
+
+```sql
+INSTALL httpfs;
+LOAD httpfs;
+ATTACH 'https://huggingface.co/datasets/Nason/dol-visas-database/resolve/main/dol_visas.duckdb' AS visas (READ_ONLY);
+
+-- Top H-1B/H-1B1/E-3 employers by certified LCA records, FY2025
+SELECT employer_name, COUNT(*) AS certified
+FROM visas.lca
+WHERE fiscal_year = 2025 AND case_status = 'CERTIFIED' AND is_latest
+GROUP BY 1 ORDER BY 2 DESC LIMIT 10;
+
+-- Median offered wage by SOC title, FY2025 (annual salaries only)
+SELECT soc_title, MEDIAN(wage_rate_of_pay_from) AS median_wage, COUNT(*) AS n
+FROM visas.lca
+WHERE fiscal_year = 2025 AND wage_unit_of_pay = 'Year' AND is_latest
+GROUP BY 1 HAVING n >= 500 ORDER BY median_wage DESC LIMIT 20;
+
+-- Share of latest disclosed PERM records with CERTIFIED or CERTIFIED-WITHDRAWN status
+-- Denominator: all latest disclosed PERM records in each fiscal year; not visas issued
+SELECT fiscal_year,
+       ROUND(100.0 * COUNT(*) FILTER (WHERE case_status LIKE 'CERTIFIED%')
+             / COUNT(*), 1) AS pct_certified
+FROM visas.perm WHERE is_latest
+GROUP BY 1 ORDER BY 1;
+```
+
+## Other ways to connect
+
+If you only need a connection for your own queries, the [datapond](https://pypi.org/project/datapond/) package also supports this shorter setup. The first-query examples above include resource limits and connection cleanup.
+
+```python
+import datapond
+visas = datapond.connect('dol-visas')
+```
+
+<a id="provenance"></a>
+
+## Sources and maintenance
+
+### Sources and provenance
+
+Source: [DOL Office of Foreign Labor Certification disclosure files](https://www.dol.gov/agencies/eta/foreign-labor/performance). License: Public domain.
+
+Source: [OFLC Performance Data](https://www.dol.gov/agencies/eta/foreign-labor/performance)
 (file inventory pinned in `sources.yaml`).
 
-## Build from Source
+### Build from Source
 
 Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/).
 
@@ -106,6 +163,6 @@ To refresh after a new quarterly release: add the new file(s) to
 `sources.yaml`, re-run `build_crosswalk.py` if headers changed (it fails
 loudly on unmapped columns), then rebuild and republish.
 
-## License
+### License
 
 Build code: MIT. Underlying data: public domain (U.S. government records).
