@@ -1,6 +1,6 @@
 # DOL Visas Database (H-1B LCA + PERM)
 
-Employer applications disclosed by the Department of Labor (DOL) Office of Foreign Labor Certification for H-1B, H-1B1 and E-3 Labor Condition Applications (LCAs) and permanent labor certification (PERM). The snapshot covers fiscal year (FY) 2015 through FY2026 Q3, with determinations through June 30, 2026. Use it to study reported employers, jobs, worksites, offered wages and case statuses. Records describe applications and disclosure appearances, not issued visas or unique workers. Use `is_latest` when selecting the most recent disclosed appearance of a case, and keep program, wage unit and partial-year coverage explicit.
+Employer applications disclosed by the Department of Labor (DOL) Office of Foreign Labor Certification for H-1B, H-1B1 and E-3 Labor Condition Applications (LCAs) and permanent labor certification (PERM). The snapshot covers fiscal year (FY) 2015 through FY2026 Q4, with determinations through September 30, 2026. Use it to study reported employers, jobs, worksites, offered wages and case statuses. Records describe applications and disclosure appearances, not issued visas or unique workers. Use `is_latest` when selecting the most recent disclosed appearance of a case, and keep program, wage unit and fiscal-year coverage explicit.
 
 <a id="quick-start"></a>
 
@@ -47,12 +47,12 @@ Queries run on your computer and read the byte ranges they need. A small result 
 
 ## Tables and coverage
 
-**About 8.8 million disclosure rows across two tables.**
+**8,987,531 disclosure rows across two tables.**
 
 | Table | Rows | Description |
 |-------|------|-------------|
-| `lca` | 7,479,697 | One row per LCA per disclosure file, FY2015+ (H-1B, H-1B1, E-3) |
-| `perm` | 1,332,942 | One row per PERM application per disclosure file, FY2015+ |
+| `lca` | 7,596,060 | One row per LCA per disclosure file, FY2015+ (H-1B, H-1B1, E-3) |
+| `perm` | 1,391,471 | One row per PERM application per disclosure file, FY2015+ |
 
 See the [data dictionary](https://github.com/ian-nason/dol-visas-database/blob/main/DICTIONARY.md) for column definitions.
 
@@ -86,9 +86,7 @@ Every row carries `fiscal_year`, `quarter` (FY2020+ LCA files only), and
 5. **Wages need unit filtering.** `wage_rate_of_pay_from` mixes hourly,
    weekly, monthly, and annual amounts — always filter or normalize by
    `wage_unit_of_pay`. FY2015-16 published a single wage value; that value appears in both the from/to fields.
-6. **FY2026 is partial** (cumulative through Q3, June 30, 2026;
-   see `quarter` and `source_file`). Pre-FY2020 LCA
-   files are end-of-year snapshots; FY2020+ are per-quarter files.
+6. **FY2026 covers all four quarters.** LCA uses four disjoint quarterly files; PERM uses its cumulative Q4 file. Earlier annual/cumulative disclosure appearances remain available.
 7. **Stored categorical values use consistent casing and punctuation** ( `case_status` is always UPPER like `CERTIFIED-WITHDRAWN`;
    `pw_wage_level` is `I`-`IV`; Y/N flags are `Y`/`N`).
 8. **Not included in v1:** H-2A, H-2B, CW-1, prevailing wage determination
@@ -166,3 +164,20 @@ loudly on unmapped columns), then rebuild and republish.
 ### License
 
 Build code: MIT. Underlying data: public domain (U.S. government records).
+
+
+### November 16, 2026 — FY2026 Q4 refresh
+
+The verified release contains **8,987,531 stored rows**: 7,596,060 LCA and 1,391,471 PERM. FY2026 contributes 553,859 LCA rows (82,477 Q1; 121,912 Q2; 230,263 Q3; 119,207 Q4) and 171,079 PERM rows. Decision dates cover October 1, 2025 through September 30, 2026. The LCA quarter files are disjoint; the PERM Q4 file is cumulative.
+
+The FY2015–FY2025 typed values were retained and checked by counts and per-column multiplicity-preserving hash aggregates; `is_latest` was recomputed across the combined history. The existing crosswalk and 110/73-column schemas are retained, including the documented omission of 100 non-crosswalk PERM source fields. All builder validation checks passed. The artifact is 3,929,288,704 bytes, SHA-256 `ccab6347bfa183e013906ce56fc384afe9052d020b514aa31f15ab5ca870d723`.
+
+The exact source hashes, baseline identity, incoming counts and validation record are in [sources-2026-11-16.json](https://huggingface.co/datasets/Nason/dol-visas-database/resolve/main/sources-2026-11-16.json). The GitHub repository includes the immutable baseline pin and the release-specific rebuild scripts. To replay in a fresh checkout with the pinned dependencies:
+
+```sh
+python download_20261116.py
+# Download the immutable URL in baseline-2026-11-16.json to baseline.duckdb.
+python refresh_20261116.py --baseline baseline.duckdb
+```
+
+The rebuild verifies the complete baseline hash and each source hash before use and refuses to overwrite its release output directory. It uses one DuckDB thread, a 1 GiB engine memory limit and at most 2 GiB spill. Disk space is additionally required for the baseline, current source files and output. Engine limits do not cap total process memory. General full-history builds remain available through `build_database.py`; that path may ingest later mutable publisher revisions and does not promise identical release bytes.

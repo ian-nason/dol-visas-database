@@ -29,11 +29,11 @@ lca:
          LCA_Disclosure_Data_FY2024_Q3.xlsx, LCA_Disclosure_Data_FY2024_Q4.xlsx]
   2025: [LCA_Disclosure_Data_FY2025_Q1.xlsx, LCA_Disclosure_Data_FY2025_Q2.xlsx,
          LCA_Disclosure_Data_FY2025_Q3.xlsx, LCA_Disclosure_Data_FY2025_Q4.xlsx]
-  # Current FY: cumulative-to-date file under a different URL prefix
-  # (dol.gov/media). The Q2 file had a DOL filename typo ("Dislclosure");
-  # Q3 (through 2026-06-30, posted Aug 2026) does not. Note: dol.gov returns
-  # 403 to browser-like User-Agents but 200 to plain requests/curl.
-  2026: [https://www.dol.gov/media/LCA_Disclosure_Data_FY2026_Q3.xlsx]
+  # The November release lists four disjoint LCA quarters. Use all four.
+  2026: [https://www.dol.gov/media/LCA_Disclosure_Data_FY2026_Q1.xlsx,
+         https://www.dol.gov/media/LCA_Disclosure_Data_FY2026_Q2.xlsx,
+         https://www.dol.gov/media/LCA_Disclosure_Data_FY2026_Q3.xlsx,
+         https://www.dol.gov/media/LCA_Disclosure_Data_FY2026_Q4.xlsx]
 
 perm:
   2015: [PERM_Disclosure_Data_FY15_Q4.xlsx]
@@ -47,7 +47,7 @@ perm:
   2023: [PERM_Disclosure_Data_FY2023_Q4.xlsx]
   2024: [PERM_Disclosure_Data_FY2024_Q4.xlsx, PERM_Disclosure_Data_New_Form_FY2024_Q4.xlsx]
   2025: [PERM_Disclosure_Data_FY2025_Q4.xlsx]
-  2026: [https://www.dol.gov/media/PERM_Disclosure_Data_FY2026_Q3.xlsx]
+  2026: [https://www.dol.gov/media/PERM_Disclosure_Data_FY2026_Q4.xlsx]
 
 # Pre-2015 files exist back to FY2008 (EFILE/iCert eras) with substantially
 # different layouts; assessed separately before inclusion.

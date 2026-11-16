@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "file": "LCA_Disclosure_Data_FY2026_Q1.xlsx",
+      "url": "https://www.dol.gov/media/LCA_Disclosure_Data_FY2026_Q1.xlsx",
+      "bytes": 60623403,
+      "sha256": "f0ddd57b2ccd668dba774b73060c26ea5a2dffbd21d6073b42df1bc291660727"
+    },
+    {
+      "file": "LCA_Disclosure_Data_FY2026_Q2.xlsx",
+      "url": "https://www.dol.gov/media/LCA_Disclosure_Data_FY2026_Q2.xlsx",
+      "bytes": 81161043,
+      "sha256": "f83934abf4c9d7d58380def574dbbc153769dbfd5340c60870dcca8583843eb5"
+    },
+    {
+      "file": "LCA_Disclosure_Data_FY2026_Q3.xlsx",
+      "url": "https://www.dol.gov/media/LCA_Disclosure_Data_FY2026_Q3.xlsx",
+      "bytes": 122427255,
+      "sha256": "9bb7750ad32762b132f939e935052ba162c0979a578e97e42d1366c5e1308da3"
+    },
+    {
+      "file": "LCA_Disclosure_Data_FY2026_Q4.xlsx",
+      "url": "https://www.dol.gov/media/LCA_Disclosure_Data_FY2026_Q4.xlsx",
+      "bytes": 80152538,
+      "sha256": "525a090def156e650a33797dde22bcb2307f51bf6b1b46a52ef84cb01af67c03"
+    },
+    {
+      "file": "PERM_Disclosure_Data_FY2026_Q4.xlsx",
+      "url": "https://www.dol.gov/media/PERM_Disclosure_Data_FY2026_Q4.xlsx",
+      "bytes": 104061394,
+      "sha256": "51f2ac7bf55cbb8e9f1fe6489f63787924bf5b76f626bafc2061b4b19f5d53e4"
+    }
+  ]
+}
